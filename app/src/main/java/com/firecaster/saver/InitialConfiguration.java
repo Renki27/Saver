@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class InitialConfiguration extends AppCompatActivity {
     public static String CURRENCY_SYMBOL = "";
@@ -91,6 +92,13 @@ public class InitialConfiguration extends AppCompatActivity {
             }
         });
 
+        inter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(inter, txt5);
+            }
+        });
+
         water.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,12 +106,6 @@ public class InitialConfiguration extends AppCompatActivity {
             }
         });
 
-        inter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                verifyCB(inter, txt5);
-            }
-        });
 
         elect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,10 +156,15 @@ public class InitialConfiguration extends AppCompatActivity {
         editor.commit();
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     @Override
     public void onBackPressed() {
 
         saveUserValues();
+        Toast.makeText(this, "data saved", Toast.LENGTH_LONG).show();
 
     }
 
