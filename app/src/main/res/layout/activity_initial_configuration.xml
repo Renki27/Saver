@@ -58,6 +58,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/zero"
             android:inputType="number" />
     </LinearLayout>
 
@@ -86,6 +87,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/zero"
             android:inputType="number" />
     </LinearLayout>
 
@@ -114,6 +116,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/zero"
             android:inputType="number" />
     </LinearLayout>
 
@@ -142,15 +145,16 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/zero"
             android:inputType="number" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/monthly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_below="@+id/transportation"
-        android:id="@+id/monthly">
+        android:orientation="vertical">
 
 
         <TextView
@@ -171,10 +175,10 @@
         android:id="@+id/internet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/monthly"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="4dp">
+        android:layout_below="@+id/monthly"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/cb_internet"
@@ -194,6 +198,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/zero"
             android:inputType="number" />
     </LinearLayout>
 
@@ -201,10 +206,10 @@
         android:id="@+id/water"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/internet"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="4dp">
+        android:layout_below="@+id/internet"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/cb_Water"
@@ -224,6 +229,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/zero"
             android:inputType="number" />
     </LinearLayout>
 
@@ -231,10 +237,10 @@
         android:id="@+id/electricity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/water"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="4dp">
+        android:layout_below="@+id/water"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/cb_Electricity"
@@ -254,6 +260,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/zero"
             android:inputType="number" />
     </LinearLayout>
 
@@ -261,10 +268,10 @@
         android:id="@+id/renting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/electricity"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="4dp">
+        android:layout_below="@+id/electricity"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/cb_Renting"
@@ -284,6 +291,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="@string/zero"
             android:inputType="number" />
     </LinearLayout>
 
