@@ -15,8 +15,8 @@ public class InitialConfiguration extends AppCompatActivity {
     public static final String CURRENCY_SELECTION = "currencySelection";
     public static final String VALUES = "values";
     private TextView c1, c2, c3, c4, c5, c6, c7, c8;
-    private EditText txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8;
-    private CheckBox breakfast,launch,diner, trans, inter, water, elect, rent;
+    private EditText txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8;
+    private CheckBox breakfast, launch, diner, trans, inter, water, elect, rent;
 
     private String cs;
 
@@ -138,7 +138,7 @@ public class InitialConfiguration extends AppCompatActivity {
         cs = sharedPreferences.getString("Currency", "No Data");
     }
 
-    public void saveUserValues(){
+    public void saveUserValues() {
         SharedPreferences sp = getSharedPreferences(VALUES, 0);
         SharedPreferences.Editor editor = sp.edit();
 
@@ -153,6 +153,7 @@ public class InitialConfiguration extends AppCompatActivity {
 
         editor.commit();
     }
+
     @Override
     public void onBackPressed() {
 
@@ -161,11 +162,11 @@ public class InitialConfiguration extends AppCompatActivity {
     }
 
     //verifica el checkbox
-    public void verifyCB(CheckBox cb, EditText et){
+    public void verifyCB(CheckBox cb, EditText et) {
 
-        if(cb.isChecked()){
+        if (cb.isChecked()) {
             et.setEnabled(true);
-        }else{
+        } else {
             et.setEnabled(false);
         }
 
@@ -175,7 +176,7 @@ public class InitialConfiguration extends AppCompatActivity {
         String value = "₡";
         SharedPreferences sharedPreferences = getSharedPreferences(CURRENCY_SELECTION, 0);
         String csTemp = sharedPreferences.getString("Currency", "No Data");
-        if(csTemp.equals("No Data")) {
+        if (csTemp.equals("No Data")) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("Currency", value);
             editor.commit();
