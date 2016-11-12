@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class InitialConfiguration extends AppCompatActivity {
     public static String CURRENCY_SYMBOL = "";
     public static final String CURRENCY_SELECTION = "currencySelection";
+    public static final String VALUES = "values";
     private TextView c1, c2, c3, c4, c5, c6, c7, c8;
     private EditText txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8;
     private CheckBox breakfast,launch,diner, trans, inter, water, elect, rent;
@@ -93,7 +94,7 @@ public class InitialConfiguration extends AppCompatActivity {
         water.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verifyCB(launch, txt6);
+                verifyCB(water, txt6);
             }
         });
 
@@ -137,10 +138,25 @@ public class InitialConfiguration extends AppCompatActivity {
         cs = sharedPreferences.getString("Currency", "No Data");
     }
 
+    public void saveUserValues(){
+        SharedPreferences sp = getSharedPreferences(VALUES, 0);
+        SharedPreferences.Editor editor = sp.edit();
+
+        editor.putInt("breakfast", Integer.parseInt(txt1.getText().toString()));
+        editor.putInt("launch", Integer.parseInt(txt2.getText().toString()));
+        editor.putInt("diner", Integer.parseInt(txt3.getText().toString()));
+        editor.putInt("transportation", Integer.parseInt(txt4.getText().toString()));
+        editor.putInt("internet", Integer.parseInt(txt5.getText().toString()));
+        editor.putInt("water", Integer.parseInt(txt6.getText().toString()));
+        editor.putInt("electricity", Integer.parseInt(txt7.getText().toString()));
+        editor.putInt("renting", Integer.parseInt(txt8.getText().toString()));
+
+        editor.commit();
+    }
     @Override
     public void onBackPressed() {
 
-
+        saveUserValues();
 
     }
 
