@@ -4,13 +4,19 @@ import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 public class InitialConfiguration extends AppCompatActivity {
     public static String CURRENCY_SYMBOL = "";
     public static final String CURRENCY_SELECTION = "currencySelection";
-    private TextView c1, c2, c3, c4;
+    private TextView c1, c2, c3, c4, c5, c6, c7, c8;
+    private EditText txt1,txt2,txt3,txt4,txt5,txt6,txt7,txt8;
+    private CheckBox breakfast,launch,diner, trans, inter, water, elect, rent;
+
     private String cs;
 
 
@@ -29,12 +35,88 @@ public class InitialConfiguration extends AppCompatActivity {
         c2 = (TextView) findViewById(R.id.tv_c2);
         c3 = (TextView) findViewById(R.id.tv_c3);
         c4 = (TextView) findViewById(R.id.tv_c4);
+        c5 = (TextView) findViewById(R.id.tv_c5);
+        c6 = (TextView) findViewById(R.id.tv_c6);
+        c7 = (TextView) findViewById(R.id.tv_c7);
+        c8 = (TextView) findViewById(R.id.tv_c8);
 
+        txt1 = (EditText) findViewById(R.id.txt1);
+        txt2 = (EditText) findViewById(R.id.txt2);
+        txt3 = (EditText) findViewById(R.id.txt3);
+        txt4 = (EditText) findViewById(R.id.txt4);
+        txt5 = (EditText) findViewById(R.id.txt5);
+        txt6 = (EditText) findViewById(R.id.txt6);
+        txt7 = (EditText) findViewById(R.id.txt7);
+        txt8 = (EditText) findViewById(R.id.txt8);
+
+        breakfast = (CheckBox) findViewById(R.id.cb_breakfast);
+        launch = (CheckBox) findViewById(R.id.cb_launch);
+        diner = (CheckBox) findViewById(R.id.cb_diner);
+        trans = (CheckBox) findViewById(R.id.cb_transportation);
+        inter = (CheckBox) findViewById(R.id.cb_internet);
+        water = (CheckBox) findViewById(R.id.cb_Water);
+        rent = (CheckBox) findViewById(R.id.cb_Renting);
+        elect = (CheckBox) findViewById(R.id.cb_Electricity);
 
         verifyCurrencyValue();
         getCurrencySelection();
         setCurrency();
 
+        breakfast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(breakfast, txt1);
+            }
+        });
+
+        launch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(launch, txt2);
+            }
+        });
+
+        diner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(diner, txt3);
+            }
+        });
+
+        trans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(trans, txt4);
+            }
+        });
+
+        water.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(launch, txt6);
+            }
+        });
+
+        inter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(inter, txt5);
+            }
+        });
+
+        elect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(elect, txt7);
+            }
+        });
+
+        rent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyCB(rent, txt8);
+            }
+        });
     }
 
     //setea el valor de la moneda
@@ -43,7 +125,10 @@ public class InitialConfiguration extends AppCompatActivity {
         c2.setText(cs);
         c3.setText(cs);
         c4.setText(cs);
-
+        c5.setText(cs);
+        c6.setText(cs);
+        c7.setText(cs);
+        c8.setText(cs);
 
     }
 
@@ -52,6 +137,23 @@ public class InitialConfiguration extends AppCompatActivity {
         cs = sharedPreferences.getString("Currency", "No Data");
     }
 
+    @Override
+    public void onBackPressed() {
+
+
+
+    }
+
+    //verifica el checkbox
+    public void verifyCB(CheckBox cb, EditText et){
+
+        if(cb.isChecked()){
+            et.setEnabled(true);
+        }else{
+            et.setEnabled(false);
+        }
+
+    }
 
     public void verifyCurrencyValue() {
         String value = "₡";
