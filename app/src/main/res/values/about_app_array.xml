@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="aboutList">
+        <item>@string/about</item>
+        <item>@string/faq</item>
+        <item>@string/feedback</item>
+        <item>@string/changelog</item>
+    </string-array>
+
+</resources>

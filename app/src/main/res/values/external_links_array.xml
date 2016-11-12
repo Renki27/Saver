@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="external_links_array">
+        <item>@string/scolarship</item>
+        <item>@string/financial_admin_office</item>
+        <item>@string/ematricula</item>
+        <item>@string/registry_office</item>
+    </string-array>
+
+</resources>

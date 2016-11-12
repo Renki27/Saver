@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_Schedule"
+            android:icon="@drawable/ic_action_schedule"
+            android:title="@string/schedule" />
+        <item
+            android:id="@+id/nav_ini_config"
+            android:icon="@drawable/ic_initial_configuration"
+            android:title="@string/initial_config" />
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_calendar"
+            android:title="@string/calendar" />
+        <item
+            android:id="@+id/nav_confVariables"
+            android:icon="@drawable/ic_tutorial"
+            android:title="ConfVariabl**" />
+        <item
+            android:id="@+id/nav_extra"
+            android:icon="@drawable/ic_extras"
+            android:title="@string/extras" />
+
+        <item
+            android:id="@+id/nav_Tutorial"
+            android:icon="@drawable/ic_tutorial"
+            android:title="@string/title_activity_tutorial" />
+        <item
+            android:id="@+id/nav_external_links"
+            android:icon="@drawable/ic_external_links"
+            android:title="@string/external_links" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_social_share"
+                android:title="@string/share" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_action_help"
+                android:title="@string/about_and_help"
+
+                />
+
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,224 @@
+<resources>
+    <string name="app_name">University Assistant</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="back_Button">Back</string>
+    <string name="reset_Schedule">Reset</string>
+    <string name="close_app">Exit</string>
+    <string name="schedule">Schedule</string>
+    <string name="about">About</string>
+    <string name="about_and_help">About and help</string>
+    <string name="share">Share</string>
+    <string name="title_activity_tutorial">Tutorial</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="step1">Step 1</string>
+    <string name="step2">Step 2</string>
+    <string name="step3">Step 3</string>
+    <string name="press_once_again_to_exit">Press once again to exit</string>
+    <string name="faq">FAQ</string>
+    <string name="swipe_toast">Swipe to the left to read the steps</string>
+    <string name="external_links">External Links</string>
+    <string name="scolarship">Socioeconomic Attention Office</string>
+    <string name="ematricula">E-matricula</string>
+    <string name="financial_admin_office">Financial Administration Office</string>
+    <string name="registry_office">Registry and Information Office</string>
+    <string name="changelog">Changelog</string>
+    <string name="extras">Extras</string>
+    <string name="calendar">Calendar</string>
+    <string name="title_activity_calendar">Calendar</string>
+    <string name="colors_representation">Colors</string>
+    <string name="notifications">Notifications</string>
+    <string name="calendar_current_day">Current day</string>
+    <string name="calendar_selected_day">Selected day</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in_text">Sign in</string>
+    <string name="loading">Loading...</string>
+    <string name="signed_out">Signed out</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="btn_sign_out_from_google">Sign out from Google</string>
+    <string name="btn_revoke_access">Revoke Access</string>
+    <string name="accounts">Accounts</string>
+    <string name="successful_login">You are logged in!</string>
+    <string name="disconnect_account">Disconnect account</string>
+    <string name="login_failed">Login failed!</string>
+    <string name="google_photo_alert">Please set a profile picture in your google account!</string>
+    <string name="sign_out_title">Sign out</string>
+    <string name="sign_out_confirmation">Would you like to Sign out?</string>
+    <string name="yes_button">Yes</string>
+    <string name="no_button">No</string>
+    <string name="app_version">version 1.0.0</string>
+    <string name="welcome">Welcome!</string>
+    <string name="send_email">Send email</string>
+    <string name="feedback">Feedback</string>
+    <string name="no_email_app">Oops!, no email app instaled.</string>
+    <string name="crash_toast_text">Ooooops ! I crashed, but a report has been sent to my developer to help fix the issue !</string>
+    <string name="contact">Contact</string>
+    <string name="report_bug">Report a problem</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="other">Others</string>
+    <string name="feedback_options">Feedback options</string>
+    <string name="feature_request">Feature request</string>
+
+
+    <string name="changelog_list">
+        cubos de pollo condimentados
+cebolla picada
+hongos en rodajas
+cubos de ajo
+consome o cuadrito
+huevos
+
+ARROZ--------------------------------
+calentar el ajo en aceite
+agregar cebolla
+cuando se cristaliza agregar el pollo
+cuando se empieza a dorar el pollo agregar hongos
+salsa de tomate
+y tomate rallado
+cubo o consome
+agregar condimentos
+
+agregar arroz
+ponerlo en plato
+
+
+
+HUEVO---------------------------------
+
+poner huevo batido a cocinar y distribuirlo bien
+cuando está casi listo agregar el arroz
+doblarlo
+--------------------
+
+ponerlo en plato y darle forma con servilleta o papel de cocina
+aplicar salsa encima
+                cubos de pollo condimentados
+cebolla picada
+hongos en rodajas
+cubos de ajo
+consome o cuadrito
+huevos
+
+ARROZ--------------------------------
+calentar el ajo en aceite
+agregar cebolla
+cuando se cristaliza agregar el pollo
+cuando se empieza a dorar el pollo agregar hongos
+salsa de tomate
+y tomate rallado
+cubo o consome
+agregar condimentos
+
+agregar arroz
+ponerlo en plato
+
+
+
+HUEVO---------------------------------
+
+poner huevo batido a cocinar y distribuirlo bien
+cuando está casi listo agregar el arroz
+doblarlo
+--------------------
+
+ponerlo en plato y darle forma con servilleta o papel de cocina
+aplicar salsa encima
+                cubos de pollo condimentados
+cebolla picada
+hongos en rodajas
+cubos de ajo
+consome o cuadrito
+huevos
+
+ARROZ--------------------------------
+calentar el ajo en aceite
+agregar cebolla
+cuando se cristaliza agregar el pollo
+cuando se empieza a dorar el pollo agregar hongos
+salsa de tomate
+y tomate rallado
+cubo o consome
+agregar condimentos
+
+agregar arroz
+ponerlo en plato
+
+
+
+HUEVO---------------------------------
+
+poner huevo batido a cocinar y distribuirlo bien
+cuando está casi listo agregar el arroz
+doblarlo
+--------------------
+
+ponerlo en plato y darle forma con servilleta o papel de cocina
+aplicar salsa encima
+    </string>
+    <string name="licenses">LICENSES</string>
+    <string name="licenses_text">Used licenses</string>
+    <string name="initial_config">Initial Configuration</string>
+    <string name="data_saved_successfully">Data saved successfully!</string>
+    <string name="error_source_not_found">Source not found!</string>
+    <string name="hour">HOUR</string>
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">H</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
+    <string name="morning">Morning</string>
+    <string name="evening">Evening</string>
+    <string name="night">Night</string>
+    <string name="save">Save</string>
+    <string name="schedule_saved">Schedule was saved!</string>
+    <string name="diner">Diner</string>
+    <string name="value">value</string>
+    <string name="launch">Launch</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="daily">Daily</string>
+    <string name="transportation">Transportation</string>
+    <string name="currency">Currency</string>
+    <string name="dollars">$ - Dollars</string>
+    <string name="dollars_symbol">$</string>
+    <string name="colones">₡ - Colones</string>
+    <string name="colones_symbol">₡</string>
+    <string name="Google">Google</string>
+    <string name="sign_out_accounts">Sign Out Accounts</string>
+    <string name="cancel">Cancel</string>
+    <string name="select">Select</string>
+    <string name="select_currency">Select your currency</string>
+    <string name="disconnect_title">Disconnect</string>
+    <string name="disconnect_confirmation">Your account will be disconnected and the user data deleted, do you want to proceed?</string>
+    <string name="economic_benefit">Economic benefit delivery</string>
+    <string name="feeding_benefit">Feeding benefit Delivery</string>
+    <string name="no_event">No Event</string>
+    <string name="schedule_guide">Schedule guide publication</string>
+    <string name="preregistration">Web pre-registration</string>
+    <string name="ordinary_registration_dates">Ordinary Registration Dates</string>
+    <string name="ordinary_registration">Web Ordinary Registration</string>
+    <string name="inclusion_quotas">Publication of inclusion quotas </string>
+    <string name="inclusion_pre_registration">Inclusion Pre-Registration</string>
+    <string name="inclusion_registration_dates">Inclusion Registration Dates</string>
+    <string name="inclusion_registration">Inclusion Registration</string>
+    <string name="hunger_games_start">Beginning of Lessons</string>
+
+
+</resources>

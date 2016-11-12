@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_initial_configuration"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignWithParentIfMissing="true"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.firecaster.saver.InitialConfiguration">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_margin="5dp"
+            android:text="@string/daily"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <View style="@style/Divider" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/breakfast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_breakfast"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="@string/breakfast" />
+
+        <TextView
+            android:id="@+id/tv_c1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/launch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/breakfast"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_launch"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="@string/launch" />
+
+        <TextView
+            android:id="@+id/tv_c2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/diner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/launch"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_diner"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="@string/diner" />
+
+        <TextView
+            android:id="@+id/tv_c3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/transportation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/diner"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_transportation"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="@string/transportation" />
+
+        <TextView
+            android:id="@+id/tv_c4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+    </LinearLayout>
+
+
+</RelativeLayout>

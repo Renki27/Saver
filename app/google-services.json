@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "586400486034",
+    "project_id": "neon-airway-145423"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586400486034:android:4f7a146771fb8438",
+        "android_client_info": {
+          "package_name": "com.firecaster.saver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586400486034-qc09v0vp4lf1m65uvlliip5mf7g3on5f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firecaster.saver",
+            "certificate_hash": "B9FDB09ED64D9169BE003EC6253F4B6EDC8892FB"
+          }
+        },
+        {
+          "client_id": "586400486034-09vdhaakn16rqf6agcoe9jd8b4tfu7ci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKZBEtVxW-VBoI3i8xv5uzjTEVEhWRjrs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
