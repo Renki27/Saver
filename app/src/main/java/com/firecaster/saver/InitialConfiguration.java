@@ -23,7 +23,7 @@ public class InitialConfiguration extends AppCompatActivity {
 
     private String cs;
 
-    
+
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
