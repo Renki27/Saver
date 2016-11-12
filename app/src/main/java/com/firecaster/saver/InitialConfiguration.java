@@ -21,8 +21,8 @@ public class InitialConfiguration extends AppCompatActivity {
 
     private String cs;
 
-
-    @Override
+    
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_configuration);
