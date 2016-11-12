@@ -54,6 +54,7 @@
             android:layout_weight="0.5" />
 
         <EditText
+            android:id="@+id/txt1"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -81,6 +82,7 @@
             android:layout_weight="0.5" />
 
         <EditText
+            android:id="@+id/txt2"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -108,6 +110,7 @@
             android:layout_weight="0.5" />
 
         <EditText
+            android:id="@+id/txt3"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -135,11 +138,154 @@
             android:layout_weight="0.5" />
 
         <EditText
+            android:id="@+id/txt4"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/transportation"
+        android:id="@+id/monthly">
+
+
+        <TextView
+            android:id="@+id/tv_monthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_margin="5dp"
+            android:text="@string/monthly"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <View style="@style/Divider" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Internet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/monthly"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4dp">
+
+        <CheckBox
+            android:id="@+id/cb_internet"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="@string/internet" />
+
+        <TextView
+            android:id="@+id/tv_c5"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:id="@+id/txt5"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Water"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/Internet"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4dp">
+
+        <CheckBox
+            android:id="@+id/cb_Water"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="@string/Water" />
+
+        <TextView
+            android:id="@+id/tv_c6"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:id="@+id/txt6"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Electricity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/Water"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4dp">
+
+        <CheckBox
+            android:id="@+id/cb_Electricity"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="@string/Eclectricity" />
+
+        <TextView
+            android:id="@+id/tv_c7"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:id="@+id/txt7"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Renting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/Electricity"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="4dp">
+
+        <CheckBox
+            android:id="@+id/cb_Renting"
+            android:layout_width="150dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:text="@string/Renting" />
+
+        <TextView
+            android:id="@+id/tv_c8"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:id="@+id/txt8"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number" />
+    </LinearLayout>
 
 </RelativeLayout>
+

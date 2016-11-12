@@ -219,6 +219,11 @@ aplicar salsa encima
     <string name="inclusion_registration_dates">Inclusion Registration Dates</string>
     <string name="inclusion_registration">Inclusion Registration</string>
     <string name="hunger_games_start">Beginning of Lessons</string>
+    <string name="monthly">Monthly</string>
+    <string name="internet">Internet Service</string>
+    <string name="Water">Water Service</string>
+    <string name="Eclectricity">Eletricity Service</string>
+    <string name="Renting">Renting Service</string>
 
 
 </resources>
