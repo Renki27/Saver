@@ -27,12 +27,25 @@ public class InitialConfiguration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_configuration);
 
-
         //Instancias que se encargan de agragar el action bar y el boton de regreso a las ventanas
         ActionBar actionBar = getSupportActionBar();
+
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        setVariables();
 
+        setListeners();
+
+        verifyCurrencyValue();
+
+        getCurrencySelection();
+
+        setCurrency();
+
+        verifyUserValues();
+    }
+
+    public void setVariables(){
         c1 = (TextView) findViewById(R.id.tv_c1);
         c2 = (TextView) findViewById(R.id.tv_c2);
         c3 = (TextView) findViewById(R.id.tv_c3);
@@ -59,11 +72,9 @@ public class InitialConfiguration extends AppCompatActivity {
         water = (CheckBox) findViewById(R.id.cb_Water);
         rent = (CheckBox) findViewById(R.id.cb_Renting);
         elect = (CheckBox) findViewById(R.id.cb_Electricity);
+    }
 
-        verifyCurrencyValue();
-        getCurrencySelection();
-        setCurrency();
-
+    public void setListeners(){
         breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,6 +133,46 @@ public class InitialConfiguration extends AppCompatActivity {
         });
     }
 
+    public void getUserValues() {
+        SharedPreferences sp = getSharedPreferences(VALUES, 0);
+        int breakfast = sp.getInt("breakfast",0);
+        int launch = sp.getInt("launch",0);
+        int diner = sp.getInt("diner",0);
+        int transportation = sp.getInt("transportation",0);
+        int internet = sp.getInt("internet",0);
+        int water = sp.getInt("water",0);
+        int electricity = sp.getInt("electricity",0);
+        int renting = sp.getInt("renting",0);
+
+        txt1.setText(breakfast);
+        txt1.setText(launch);
+        txt1.setText(diner);
+        txt1.setText(transportation);
+        txt1.setText(internet);
+        txt1.setText(water);
+        txt1.setText(electricity);
+        txt1.setText(renting);
+
+    }
+
+    public void verifyUserValues(){
+        SharedPreferences sp = getSharedPreferences(VALUES, 0);
+        int breakfast = sp.getInt("breakfast",0);
+        int launch = sp.getInt("launch",0);
+        int diner = sp.getInt("diner",0);
+        int transportation = sp.getInt("transportation",0);
+        int internet = sp.getInt("internet",0);
+        int water = sp.getInt("water",0);
+        int electricity = sp.getInt("electricity",0);
+        int renting = sp.getInt("renting",0);
+        if (breakfast == 0){
+            saveUserValues();
+            getUserValues();
+        }else{
+            getUserValues();
+        }
+    }
+
     //setea el valor de la moneda
     public void setCurrency() {
         c1.setText(cs);
@@ -156,10 +207,6 @@ public class InitialConfiguration extends AppCompatActivity {
         editor.commit();
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
     @Override
     public void onBackPressed() {
 
