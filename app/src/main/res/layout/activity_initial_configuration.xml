@@ -168,7 +168,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/Internet"
+        android:id="@+id/internet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -198,11 +198,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/Water"
+        android:id="@+id/water"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/Internet"
+        android:layout_below="@+id/internet"
         android:layout_alignParentStart="true"
         android:layout_marginTop="4dp">
 
@@ -211,7 +211,7 @@
             android:layout_width="150dp"
             android:layout_height="42dp"
             android:layout_weight="1"
-            android:text="@string/Water" />
+            android:text="@string/water" />
 
         <TextView
             android:id="@+id/tv_c6"
@@ -228,11 +228,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/Electricity"
+        android:id="@+id/electricity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/Water"
+        android:layout_below="@+id/water"
         android:layout_alignParentStart="true"
         android:layout_marginTop="4dp">
 
@@ -241,7 +241,7 @@
             android:layout_width="150dp"
             android:layout_height="42dp"
             android:layout_weight="1"
-            android:text="@string/Eclectricity" />
+            android:text="@string/electricity" />
 
         <TextView
             android:id="@+id/tv_c7"
@@ -258,11 +258,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/Renting"
+        android:id="@+id/renting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/Electricity"
+        android:layout_below="@+id/electricity"
         android:layout_alignParentStart="true"
         android:layout_marginTop="4dp">
 
@@ -271,7 +271,7 @@
             android:layout_width="150dp"
             android:layout_height="42dp"
             android:layout_weight="1"
-            android:text="@string/Renting" />
+            android:text="@string/renting" />
 
         <TextView
             android:id="@+id/tv_c8"
