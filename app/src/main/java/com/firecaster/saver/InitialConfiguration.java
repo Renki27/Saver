@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -18,6 +19,7 @@ public class InitialConfiguration extends AppCompatActivity {
     private TextView c1, c2, c3, c4, c5, c6, c7, c8;
     private EditText txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8;
     private CheckBox breakfast, launch, diner, trans, inter, water, elect, rent;
+    Button saveButton;
 
     private String cs;
 
@@ -29,8 +31,10 @@ public class InitialConfiguration extends AppCompatActivity {
 
         //Instancias que se encargan de agragar el action bar y el boton de regreso a las ventanas
         ActionBar actionBar = getSupportActionBar();
-
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        saveButton = (Button) findViewById(R.id.bt_save_user_values);
+
 
         setVariables();
 
@@ -43,9 +47,19 @@ public class InitialConfiguration extends AppCompatActivity {
         setCurrency();
 
         verifyUserValues();
+
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveUserValues();
+                Toast.makeText(InitialConfiguration.this, R.string.data_saved_successfully, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
-    public void setVariables(){
+    public void setVariables() {
         c1 = (TextView) findViewById(R.id.tv_c1);
         c2 = (TextView) findViewById(R.id.tv_c2);
         c3 = (TextView) findViewById(R.id.tv_c3);
@@ -74,7 +88,7 @@ public class InitialConfiguration extends AppCompatActivity {
         elect = (CheckBox) findViewById(R.id.cb_Electricity);
     }
 
-    public void setListeners(){
+    public void setListeners() {
         breakfast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,40 +149,50 @@ public class InitialConfiguration extends AppCompatActivity {
 
     public void getUserValues() {
         SharedPreferences sp = getSharedPreferences(VALUES, 0);
-        int breakfast = sp.getInt("breakfast",0);
-        int launch = sp.getInt("launch",0);
-        int diner = sp.getInt("diner",0);
-        int transportation = sp.getInt("transportation",0);
-        int internet = sp.getInt("internet",0);
-        int water = sp.getInt("water",0);
-        int electricity = sp.getInt("electricity",0);
-        int renting = sp.getInt("renting",0);
+        int breakfast = sp.getInt("breakfast", 0);
+        int launch = sp.getInt("launch", 0);
+        int diner = sp.getInt("diner", 0);
+        int transportation = sp.getInt("transportation", 0);
+        int internet = sp.getInt("internet", 0);
+        int water = sp.getInt("water", 0);
+        int electricity = sp.getInt("electricity", 0);
+        int renting = sp.getInt("renting", 0);
 
-        txt1.setText(breakfast);
-        txt1.setText(launch);
-        txt1.setText(diner);
-        txt1.setText(transportation);
-        txt1.setText(internet);
-        txt1.setText(water);
-        txt1.setText(electricity);
-        txt1.setText(renting);
+        txt1.setText(breakfast + "");
+        txt2.setText(launch + "");
+        txt3.setText(diner + "");
+        txt4.setText(transportation + "");
+        txt5.setText(internet + "");
+        txt6.setText(water + "");
+        txt7.setText(electricity + "");
+        txt8.setText(renting + "");
 
     }
 
-    public void verifyUserValues(){
+    public void verifyUserValues() {
         SharedPreferences sp = getSharedPreferences(VALUES, 0);
-        int breakfast = sp.getInt("breakfast",0);
-        int launch = sp.getInt("launch",0);
-        int diner = sp.getInt("diner",0);
-        int transportation = sp.getInt("transportation",0);
-        int internet = sp.getInt("internet",0);
-        int water = sp.getInt("water",0);
-        int electricity = sp.getInt("electricity",0);
-        int renting = sp.getInt("renting",0);
-        if (breakfast == 0){
+        int breakfast = sp.getInt("breakfast", 0);
+        int launch = sp.getInt("launch", 0);
+        int diner = sp.getInt("diner", 0);
+        int transportation = sp.getInt("transportation", 0);
+        int internet = sp.getInt("internet", 0);
+        int water = sp.getInt("water", 0);
+        int electricity = sp.getInt("electricity", 0);
+        int renting = sp.getInt("renting", 0);
+        if (breakfast == 0) {
+
+            txt1.setText(breakfast + "");
+            txt2.setText(launch + "");
+            txt3.setText(diner + "");
+            txt4.setText(transportation + "");
+            txt5.setText(internet + "");
+            txt6.setText(water + "");
+            txt7.setText(electricity + "");
+            txt8.setText(renting + "");
+
             saveUserValues();
             getUserValues();
-        }else{
+        } else {
             getUserValues();
         }
     }
@@ -207,13 +231,6 @@ public class InitialConfiguration extends AppCompatActivity {
         editor.commit();
     }
 
-    @Override
-    public void onBackPressed() {
-
-        saveUserValues();
-        Toast.makeText(this, "data saved", Toast.LENGTH_LONG).show();
-
-    }
 
     //verifica el checkbox
     public void verifyCB(CheckBox cb, EditText et) {

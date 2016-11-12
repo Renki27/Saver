@@ -13,287 +13,307 @@
     tools:context="com.firecaster.saver.InitialConfiguration">
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:id="@+id/tv_daily"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|center"
-            android:layout_margin="5dp"
-            android:text="@string/daily"
-            android:textColor="@color/colorAccent"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <View style="@style/Divider" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/breakfast"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <CheckBox
-            android:id="@+id/cb_breakfast"
-            android:layout_width="150dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:text="@string/breakfast" />
+        <LinearLayout
 
-        <TextView
-            android:id="@+id/tv_c1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="0.5" />
-
-        <EditText
-            android:id="@+id/txt1"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/zero"
-            android:inputType="number" />
-    </LinearLayout>
+            android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/launch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/breakfast"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/cb_launch"
-            android:layout_width="150dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:text="@string/launch" />
-
-        <TextView
-            android:id="@+id/tv_c2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="0.5" />
-
-        <EditText
-            android:id="@+id/txt2"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/zero"
-            android:inputType="number" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/diner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/launch"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/cb_diner"
-            android:layout_width="150dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:text="@string/diner" />
-
-        <TextView
-            android:id="@+id/tv_c3"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="0.5" />
-
-        <EditText
-            android:id="@+id/txt3"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/zero"
-            android:inputType="number" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/transportation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/diner"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/cb_transportation"
-            android:layout_width="150dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:text="@string/transportation" />
-
-        <TextView
-            android:id="@+id/tv_c4"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="0.5" />
-
-        <EditText
-            android:id="@+id/txt4"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/zero"
-            android:inputType="number" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/monthly"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/transportation"
-        android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/tv_monthly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|center"
-            android:layout_margin="5dp"
-            android:text="@string/monthly"
-            android:textColor="@color/colorAccent"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_daily"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_margin="5dp"
+                    android:text="@string/daily"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-        <View style="@style/Divider" />
-    </LinearLayout>
+                <View style="@style/Divider" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/internet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/monthly"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/breakfast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/cb_internet"
-            android:layout_width="150dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:text="@string/internet" />
+                <CheckBox
+                    android:id="@+id/cb_breakfast"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="@string/breakfast" />
 
-        <TextView
-            android:id="@+id/tv_c5"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="0.5" />
+                <TextView
+                    android:id="@+id/tv_c1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5" />
 
-        <EditText
-            android:id="@+id/txt5"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/zero"
-            android:inputType="number" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/txt1"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/zero"
+                    android:inputType="number" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/water"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/internet"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/launch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/breakfast"
+                android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/cb_Water"
-            android:layout_width="150dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:text="@string/water" />
+                <CheckBox
+                    android:id="@+id/cb_launch"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="@string/launch" />
 
-        <TextView
-            android:id="@+id/tv_c6"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="0.5" />
+                <TextView
+                    android:id="@+id/tv_c2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5" />
 
-        <EditText
-            android:id="@+id/txt6"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/zero"
-            android:inputType="number" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/txt2"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/zero"
+                    android:inputType="number" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/electricity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/water"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/diner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/launch"
+                android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/cb_Electricity"
-            android:layout_width="150dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:text="@string/electricity" />
+                <CheckBox
+                    android:id="@+id/cb_diner"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="@string/diner" />
 
-        <TextView
-            android:id="@+id/tv_c7"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="0.5" />
+                <TextView
+                    android:id="@+id/tv_c3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5" />
 
-        <EditText
-            android:id="@+id/txt7"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/zero"
-            android:inputType="number" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/txt3"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/zero"
+                    android:inputType="number" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/renting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/electricity"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/transportation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/diner"
+                android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/cb_Renting"
-            android:layout_width="150dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:text="@string/renting" />
+                <CheckBox
+                    android:id="@+id/cb_transportation"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="@string/transportation" />
 
-        <TextView
-            android:id="@+id/tv_c8"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="0.5" />
+                <TextView
+                    android:id="@+id/tv_c4"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5" />
 
-        <EditText
-            android:id="@+id/txt8"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/zero"
-            android:inputType="number" />
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/txt4"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/zero"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/monthly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/transportation"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_monthly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_margin="5dp"
+                    android:text="@string/monthly"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <View style="@style/Divider" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/internet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/monthly"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_internet"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="@string/internet" />
+
+                <TextView
+                    android:id="@+id/tv_c5"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5" />
+
+                <EditText
+                    android:id="@+id/txt5"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/zero"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/water"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/internet"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_Water"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="@string/water" />
+
+                <TextView
+                    android:id="@+id/tv_c6"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5" />
+
+                <EditText
+                    android:id="@+id/txt6"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/zero"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/electricity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/water"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_Electricity"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="@string/electricity" />
+
+                <TextView
+                    android:id="@+id/tv_c7"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5" />
+
+                <EditText
+                    android:id="@+id/txt7"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/zero"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/renting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/electricity"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_Renting"
+                    android:layout_width="150dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:text="@string/renting" />
+
+                <TextView
+                    android:id="@+id/tv_c8"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="0.5" />
+
+                <EditText
+                    android:id="@+id/txt8"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/zero"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/bt_save_user_values"
+                android:layout_width="wrap_content"
+                android:text="@string/save"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </RelativeLayout>
 
