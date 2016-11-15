@@ -14,8 +14,9 @@
 
 
     <ScrollView
+        android:id="@+id/sv_initialConf"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
 
@@ -67,8 +68,9 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/zero"
-                    android:inputType="number" />
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -96,8 +98,9 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/zero"
-                    android:inputType="number" />
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -108,11 +111,11 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/cb_diner"
+                    android:id="@+id/cb_dinner"
                     android:layout_width="150dp"
                     android:layout_height="42dp"
                     android:layout_weight="1"
-                    android:text="@string/diner" />
+                    android:text="@string/dinner" />
 
                 <TextView
                     android:id="@+id/tv_c3"
@@ -125,8 +128,9 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/zero"
-                    android:inputType="number" />
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -154,8 +158,9 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/zero"
-                    android:inputType="number" />
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -206,8 +211,9 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/zero"
-                    android:inputType="number" />
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -237,8 +243,9 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/zero"
-                    android:inputType="number" />
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -268,8 +275,9 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/zero"
-                    android:inputType="number" />
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -299,20 +307,27 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="@string/zero"
-                    android:inputType="number" />
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textAlignment="center" />
             </LinearLayout>
-
-            <Button
-                android:id="@+id/bt_save_user_values"
-                android:layout_width="wrap_content"
-                android:text="@string/save"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal" />
-
-
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sv_initialConf"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_save_user_values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/save" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -15,16 +15,17 @@ import android.widget.Toast;
 public class InitialConfiguration extends AppCompatActivity {
     public static String CURRENCY_SYMBOL = "";
     public static final String CURRENCY_SELECTION = "currencySelection";
+    public static final String CHECKBOX_STATES = "checkboxStates";
     public static final String VALUES = "values";
     private TextView c1, c2, c3, c4, c5, c6, c7, c8;
     private EditText txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8;
-    private CheckBox breakfast, launch, diner, trans, inter, water, elect, rent;
+    private CheckBox breakfast, launch, dinner, trans, inter, water, elect, rent;
     Button saveButton;
 
     private String cs;
 
 
-        @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial_configuration);
@@ -35,30 +36,30 @@ public class InitialConfiguration extends AppCompatActivity {
 
         saveButton = (Button) findViewById(R.id.bt_save_user_values);
 
-
         setVariables();
-
-        setListeners();
-
         verifyCurrencyValue();
-
         getCurrencySelection();
-
         setCurrency();
 
+
+        setListeners();
         verifyUserValues();
 
+
+        getCheckBoxStates();
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveUserValues();
+                saveCheckBoxStates();
                 Toast.makeText(InitialConfiguration.this, R.string.data_saved_successfully, Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
+    //Inicializa las variables
     public void setVariables() {
         c1 = (TextView) findViewById(R.id.tv_c1);
         c2 = (TextView) findViewById(R.id.tv_c2);
@@ -80,7 +81,7 @@ public class InitialConfiguration extends AppCompatActivity {
 
         breakfast = (CheckBox) findViewById(R.id.cb_breakfast);
         launch = (CheckBox) findViewById(R.id.cb_launch);
-        diner = (CheckBox) findViewById(R.id.cb_diner);
+        dinner = (CheckBox) findViewById(R.id.cb_dinner);
         trans = (CheckBox) findViewById(R.id.cb_transportation);
         inter = (CheckBox) findViewById(R.id.cb_internet);
         water = (CheckBox) findViewById(R.id.cb_Water);
@@ -103,10 +104,10 @@ public class InitialConfiguration extends AppCompatActivity {
             }
         });
 
-        diner.setOnClickListener(new View.OnClickListener() {
+        dinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verifyCB(diner, txt3);
+                verifyCB(dinner, txt3);
             }
         });
 
@@ -147,25 +148,43 @@ public class InitialConfiguration extends AppCompatActivity {
         });
     }
 
+
+    public void saveUserValues() {
+        SharedPreferences sp = getSharedPreferences(VALUES, 0);
+        SharedPreferences.Editor editor = sp.edit();
+
+        editor.putInt("breakfast", Integer.parseInt(txt1.getText().toString()));
+        editor.putInt("launch", Integer.parseInt(txt2.getText().toString()));
+        editor.putInt("dinner", Integer.parseInt(txt3.getText().toString()));
+        editor.putInt("transportation", Integer.parseInt(txt4.getText().toString()));
+        editor.putInt("internet", Integer.parseInt(txt5.getText().toString()));
+        editor.putInt("water", Integer.parseInt(txt6.getText().toString()));
+        editor.putInt("electricity", Integer.parseInt(txt7.getText().toString()));
+        editor.putInt("renting", Integer.parseInt(txt8.getText().toString()));
+
+        editor.commit();
+    }
+
+
     public void getUserValues() {
         SharedPreferences sp = getSharedPreferences(VALUES, 0);
         int breakfast = sp.getInt("breakfast", 0);
         int launch = sp.getInt("launch", 0);
-        int diner = sp.getInt("diner", 0);
+        int dinner = sp.getInt("dinner", 0);
         int transportation = sp.getInt("transportation", 0);
         int internet = sp.getInt("internet", 0);
         int water = sp.getInt("water", 0);
         int electricity = sp.getInt("electricity", 0);
         int renting = sp.getInt("renting", 0);
 
-        txt1.setText(breakfast + "");
-        txt2.setText(launch + "");
-        txt3.setText(diner + "");
-        txt4.setText(transportation + "");
-        txt5.setText(internet + "");
-        txt6.setText(water + "");
-        txt7.setText(electricity + "");
-        txt8.setText(renting + "");
+        txt1.setText(Integer.toString(breakfast));
+        txt2.setText(Integer.toString(launch));
+        txt3.setText(Integer.toString(dinner));
+        txt4.setText(Integer.toString(transportation));
+        txt5.setText(Integer.toString(internet));
+        txt6.setText(Integer.toString(water));
+        txt7.setText(Integer.toString(electricity));
+        txt8.setText(Integer.toString(renting));
 
     }
 
@@ -173,28 +192,130 @@ public class InitialConfiguration extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences(VALUES, 0);
         int breakfast = sp.getInt("breakfast", 0);
         int launch = sp.getInt("launch", 0);
-        int diner = sp.getInt("diner", 0);
+        int dinner = sp.getInt("dinner", 0);
         int transportation = sp.getInt("transportation", 0);
         int internet = sp.getInt("internet", 0);
         int water = sp.getInt("water", 0);
         int electricity = sp.getInt("electricity", 0);
         int renting = sp.getInt("renting", 0);
-        if (breakfast == 0) {
+        if ((breakfast == 0) && (launch == 0) && (dinner == 0)
+                && (transportation == 0) && (internet == 0) && (water == 0) && (electricity == 0) && (renting == 0)) {
 
-            txt1.setText(breakfast + "");
-            txt2.setText(launch + "");
-            txt3.setText(diner + "");
-            txt4.setText(transportation + "");
-            txt5.setText(internet + "");
-            txt6.setText(water + "");
-            txt7.setText(electricity + "");
-            txt8.setText(renting + "");
+            txt1.setText(Integer.toString(breakfast));
+            txt2.setText(Integer.toString(launch));
+            txt3.setText(Integer.toString(dinner));
+            txt4.setText(Integer.toString(transportation));
+            txt5.setText(Integer.toString(internet));
+            txt6.setText(Integer.toString(water));
+            txt7.setText(Integer.toString(electricity));
+            txt8.setText(Integer.toString(renting));
 
+            setEditTextDisabled();
             saveUserValues();
             getUserValues();
         } else {
+
             getUserValues();
+            verifyALLEditText();
         }
+    }
+
+    public void setEditTextDisabled() {
+        txt1.setEnabled(false);
+        txt2.setEnabled(false);
+        txt3.setEnabled(false);
+        txt4.setEnabled(false);
+        txt5.setEnabled(false);
+        txt6.setEnabled(false);
+        txt7.setEnabled(false);
+        txt8.setEnabled(false);
+    }
+
+    public void saveCheckBoxStates() {
+        SharedPreferences sp = getSharedPreferences(CHECKBOX_STATES, 0);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("Breakfast", verifyCheckBox(breakfast));
+        editor.putInt("Launch", verifyCheckBox(launch));
+        editor.putInt("Dinner", verifyCheckBox(dinner));
+        editor.putInt("Transportation", verifyCheckBox(trans));
+        editor.putInt("Internet", verifyCheckBox(inter));
+        editor.putInt("Water", verifyCheckBox(water));
+        editor.putInt("Electricity", verifyCheckBox(elect));
+        editor.putInt("Renting", verifyCheckBox(rent));
+        editor.commit();
+    }
+
+    public void getCheckBoxStates() {
+        SharedPreferences sp = getSharedPreferences(CHECKBOX_STATES, 0);
+        int cb_breakfast = sp.getInt("Breakfast", 0);
+        int cb_launch = sp.getInt("Launch", 0);
+        int cb_dinner = sp.getInt("Dinner", 0);
+        int cb_transportation = sp.getInt("Transportation", 0);
+        int cb_internet = sp.getInt("Internet", 0);
+        int cb_water = sp.getInt("Water", 0);
+        int cb_electricity = sp.getInt("Electricity", 0);
+        int cb_renting = sp.getInt("Renting", 0);
+
+        setCheckboxStates(cb_breakfast, breakfast);
+        setCheckboxStates(cb_launch, launch);
+        setCheckboxStates(cb_dinner, dinner);
+        setCheckboxStates(cb_transportation, trans);
+        setCheckboxStates(cb_internet, inter);
+        setCheckboxStates(cb_water, water);
+        setCheckboxStates(cb_electricity, elect);
+        setCheckboxStates(cb_renting, rent);
+    }
+
+    public void verifyCheckBoxStates() {
+        SharedPreferences sp = getSharedPreferences(CHECKBOX_STATES, 0);
+        int cb_breakfast = sp.getInt("Breakfast", 0);
+        int cb_launch = sp.getInt("Launch", 0);
+        int cb_dinner = sp.getInt("Dinner", 0);
+        int cb_transportation = sp.getInt("Transportation", 0);
+        int cb_internet = sp.getInt("Internet", 0);
+        int cb_water = sp.getInt("Water", 0);
+        int cb_electricity = sp.getInt("Electricity", 0);
+        int cb_renting = sp.getInt("Renting", 0);
+
+
+    }
+
+    // verifica un checkbox
+    public int verifyCheckBox(CheckBox cb) {
+        if (cb.isChecked()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    //setea los checkbox
+    public void setCheckboxStates(int state, CheckBox cb) {
+        if (state == 1) {
+            cb.setChecked(true);
+        } else {
+            cb.setChecked(false);
+        }
+    }
+
+
+    public void verifyEditText(EditText et) {
+        int temp = Integer.parseInt(et.getText().toString());
+        if (temp == 0) {
+            et.setEnabled(false);
+        }
+
+    }
+
+    public void verifyALLEditText() {
+        verifyEditText(txt1);
+        verifyEditText(txt2);
+        verifyEditText(txt3);
+        verifyEditText(txt4);
+        verifyEditText(txt5);
+        verifyEditText(txt6);
+        verifyEditText(txt7);
+        verifyEditText(txt8);
     }
 
     //setea el valor de la moneda
@@ -213,22 +334,6 @@ public class InitialConfiguration extends AppCompatActivity {
     public void getCurrencySelection() {
         SharedPreferences sharedPreferences = getSharedPreferences(CURRENCY_SELECTION, 0);
         cs = sharedPreferences.getString("Currency", "No Data");
-    }
-
-    public void saveUserValues() {
-        SharedPreferences sp = getSharedPreferences(VALUES, 0);
-        SharedPreferences.Editor editor = sp.edit();
-
-        editor.putInt("breakfast", Integer.parseInt(txt1.getText().toString()));
-        editor.putInt("launch", Integer.parseInt(txt2.getText().toString()));
-        editor.putInt("diner", Integer.parseInt(txt3.getText().toString()));
-        editor.putInt("transportation", Integer.parseInt(txt4.getText().toString()));
-        editor.putInt("internet", Integer.parseInt(txt5.getText().toString()));
-        editor.putInt("water", Integer.parseInt(txt6.getText().toString()));
-        editor.putInt("electricity", Integer.parseInt(txt7.getText().toString()));
-        editor.putInt("renting", Integer.parseInt(txt8.getText().toString()));
-
-        editor.commit();
     }
 
 
