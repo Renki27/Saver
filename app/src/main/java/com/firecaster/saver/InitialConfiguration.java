@@ -266,21 +266,7 @@ public class InitialConfiguration extends AppCompatActivity {
         setCheckboxStates(cb_renting, rent);
     }
 
-    public void verifyCheckBoxStates() {
-        SharedPreferences sp = getSharedPreferences(CHECKBOX_STATES, 0);
-        int cb_breakfast = sp.getInt("Breakfast", 0);
-        int cb_launch = sp.getInt("Launch", 0);
-        int cb_dinner = sp.getInt("Dinner", 0);
-        int cb_transportation = sp.getInt("Transportation", 0);
-        int cb_internet = sp.getInt("Internet", 0);
-        int cb_water = sp.getInt("Water", 0);
-        int cb_electricity = sp.getInt("Electricity", 0);
-        int cb_renting = sp.getInt("Renting", 0);
-
-
-    }
-
-    // verifica un checkbox
+       // verifica un checkbox
     public int verifyCheckBox(CheckBox cb) {
         if (cb.isChecked()) {
             return 1;
