@@ -323,6 +323,7 @@ public class InitialConfiguration extends AppCompatActivity {
     }
 
 
+
     //verifica el checkbox
     public void verifyCB(CheckBox cb, EditText et) {
 
