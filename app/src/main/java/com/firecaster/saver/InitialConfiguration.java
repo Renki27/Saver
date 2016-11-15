@@ -231,7 +231,6 @@ public class InitialConfiguration extends AppCompatActivity {
         editor.commit();
     }
 
-
     //verifica el checkbox
     public void verifyCB(CheckBox cb, EditText et) {
 
