@@ -184,9 +184,9 @@ aplicar salsa encima
     <string name="thursday">H</string>
     <string name="friday">F</string>
     <string name="saturday">S</string>
-    <string name="morning">Morning</string>
-    <string name="evening">Evening</string>
-    <string name="night">Night</string>
+    <string name="morning">Morning 7-11</string>
+    <string name="evening">Evening 12-17</string>
+    <string name="night">Night 18-21</string>
     <string name="save">Save</string>
     <string name="schedule_saved">Schedule was saved!</string>
     <string name="diner">Diner</string>
@@ -225,6 +225,7 @@ aplicar salsa encima
     <string name="electricity">Electricity Service</string>
     <string name="renting">Renting Service</string>
     <string name="zero">0</string>
+    <string name="data_deleted">Application data deleted</string>
 
 
 </resources>

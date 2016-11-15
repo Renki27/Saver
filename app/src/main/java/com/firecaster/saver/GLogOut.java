@@ -1,5 +1,9 @@
 package com.firecaster.saver;
 
+import android.app.ActivityManager;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -110,6 +115,7 @@ public class GLogOut extends AppCompatActivity implements GoogleApiClient.OnConn
                         .setPositiveButton(R.string.yes_button, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 //desconectar cuenta
+                                Toast.makeText(GLogOut.this, R.string.data_deleted, Toast.LENGTH_LONG).show();
                                 revokeAccess();
 
 
@@ -151,27 +157,28 @@ public class GLogOut extends AppCompatActivity implements GoogleApiClient.OnConn
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
-                      //  wipeData();
-                        Intent login = new Intent(GLogOut.this, GLogin.class);
+                        wipeData();
                         Log.d(TAG, "revokeAccess:onResult:" + status);
-                        login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(login);
-                        finish();
+                        restartApp();
+
                     }
                 });
     }
 
 
     public void wipeData() {
-        SharedPreferences userData = getSharedPreferences(USER_DATA_FILE, 0);
-        userData.edit().clear().commit();
-        SharedPreferences scheduleData = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
-        scheduleData.edit().clear().commit();
-        SharedPreferences currencyData = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
-        currencyData.edit().clear().commit();
-
+        MyApplication.getInstance().clearApplicationData();
     }
 
+    public void restartApp() {
+        Intent mStartActivity = new Intent(this, GLogin.class);
+        mStartActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        int mPendingIntentId = 123456;
+        PendingIntent mPendingIntent = PendingIntent.getActivity(this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager mgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+        System.exit(0);
+    }
 
     public void setUserEmail() {
         SharedPreferences sharedPreferences = getSharedPreferences(USER_DATA_FILE, 0);

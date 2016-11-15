@@ -167,7 +167,7 @@ public class GLogin extends AppCompatActivity implements View.OnClickListener, G
             // If the user has not previously signed in on this device or the sign-in has expired,
             // this asynchronous branch will attempt to sign in the user silently.  Cross-device
             // single sign-on will occur in this branch.
-//            showProgressDialog();
+          showProgressDialog();
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
                 public void onResult(GoogleSignInResult googleSignInResult) {
@@ -202,7 +202,7 @@ public class GLogin extends AppCompatActivity implements View.OnClickListener, G
             mProgressDialog.setIndeterminate(true);
         }
 
-//        mProgressDialog.show();
+        mProgressDialog.show();
     }
 
     private void hideProgressDialog() {
