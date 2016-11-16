@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
@@ -44,6 +46,9 @@ public class CalendarWidgetWindow extends AppCompatActivity implements OnDateSel
     ArrayList<CalendarDay> inclusionRegistrationDatesList = new ArrayList<>();
     ArrayList<CalendarDay> webInclusionRegistrationList = new ArrayList<>();
     ArrayList<CalendarDay> hungerGamesStartList = new ArrayList<>();
+
+    ArrayList<CalendarDay> listaPrueba = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +71,7 @@ public class CalendarWidgetWindow extends AppCompatActivity implements OnDateSel
             @Override
             public void onClick(View v) {
                 animButton(v);
+              //  n(listaPrueba);
                 Intent colorWindow = new Intent(CalendarWidgetWindow.this, CalendarColors.class);
                 startActivity(colorWindow);
 
@@ -88,6 +94,7 @@ public class CalendarWidgetWindow extends AppCompatActivity implements OnDateSel
         calendarWidget.setOnDateChangedListener(this);
 
 
+        listaPrueba.add(setDaysEvent(2016, 11, 15));
     }
 
     //metodo para obtener la fecha fecha atual y seleccionar el día
@@ -142,6 +149,7 @@ public class CalendarWidgetWindow extends AppCompatActivity implements OnDateSel
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
             return true;
         }
 
@@ -310,6 +318,28 @@ public class CalendarWidgetWindow extends AppCompatActivity implements OnDateSel
             public void onAnimationEnd() {
             }
         });
+    }
+
+
+    //RTC_Wakeup es para que sirva inclusio si el telefono esta bloqueado
+    //Interval day para que sea diaria
+    public void n(ArrayList<CalendarDay> list, int hour, int minutes, int seconds) {
+        Calendar calendar = Calendar.getInstance();
+        CalendarDay temp = list.get(0);
+
+        calendar.set(Calendar.YEAR, temp.getYear());
+        calendar.set(Calendar.MONTH, temp.getMonth());
+        calendar.set(Calendar.DAY_OF_MONTH, temp.getDay());
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, minutes);
+        calendar.set(Calendar.SECOND, seconds);
+
+
+        Intent intent = new Intent(this, NotificationReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
     }
 
 

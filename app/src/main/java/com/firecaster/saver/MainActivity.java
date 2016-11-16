@@ -1,5 +1,7 @@
 package com.firecaster.saver;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -23,9 +25,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity
@@ -41,6 +46,8 @@ public class MainActivity extends AppCompatActivity
     String e;
     String p;
     public static final String USER_DATA_FILE = "UserGoogleDataFile";
+    public static final String CHECKBOX_STATES = "checkboxStates";
+    public static final String SCHEDULE_DATA_FILE = "UserScheduleFile";
 
 
     @Override
@@ -69,6 +76,8 @@ public class MainActivity extends AppCompatActivity
 
 
         getData();
+
+        getWeekNotifications();
     }
 
 
@@ -214,5 +223,93 @@ public class MainActivity extends AppCompatActivity
         System.exit(0);
     }
 
+
+    //RTC_Wakeup es para que sirva inclusio si el telefono esta bloqueado
+    //Interval day para que sea diaria
+    public void dailyAlarms(int dayOfWeek, int hour, int minutes, int seconds, int id, String title, String text) {
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek);
+        calendar.set(Calendar.HOUR_OF_DAY, hour);
+        calendar.set(Calendar.MINUTE, minutes);
+        calendar.set(Calendar.SECOND, seconds);
+        Toast.makeText(this, calendar.getTime().toString(), Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(this, NotificationReceiver.class);
+        intent.putExtra("ID", id);
+        intent.putExtra("TITLE", title);
+        intent.putExtra("TEXT", text);
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+       // alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+    }
+
+
+    public void getWeekNotifications() {
+        SharedPreferences ch_SPreferences = getSharedPreferences(CHECKBOX_STATES, 0);
+        SharedPreferences schedule_SPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
+        int cb_breakfast = ch_SPreferences.getInt("Breakfast", 0);
+        int cb_launch = ch_SPreferences.getInt("Launch", 0);
+        int cb_dinner = ch_SPreferences.getInt("Dinner", 0);
+
+        String getMonday = schedule_SPreferences.getString("Monday", "No Data saved");
+        String getTuesday = schedule_SPreferences.getString("Tuesday", "No Data saved");
+        String getWednesday = schedule_SPreferences.getString("Wednesday", "No Data saved");
+        String getThursday = schedule_SPreferences.getString("Thursday", "No Data saved");
+        String getFriday = schedule_SPreferences.getString("Friday", "No Data saved");
+        String getSaturday = schedule_SPreferences.getString("Saturday", "No Data saved");
+        ClassDays tempMon, tempTue, tempWed, tempThur, tempFri, tempSat;
+
+        String m[] = getMonday.split("-");
+        String t[] = getTuesday.split("-");
+        String w[] = getWednesday.split("-");
+        String th[] = getThursday.split("-");
+        String f[] = getFriday.split("-");
+        String s[] = getSaturday.split("-");
+        tempMon = new ClassDays(m[0], Boolean.parseBoolean(m[1]), Boolean.parseBoolean(m[2]), Boolean.parseBoolean(m[3]));
+        tempTue = new ClassDays(t[0], Boolean.parseBoolean(t[1]), Boolean.parseBoolean(t[2]), Boolean.parseBoolean(t[3]));
+        tempWed = new ClassDays(w[0], Boolean.parseBoolean(w[1]), Boolean.parseBoolean(w[2]), Boolean.parseBoolean(w[3]));
+        tempThur = new ClassDays(th[0], Boolean.parseBoolean(th[1]), Boolean.parseBoolean(th[2]), Boolean.parseBoolean(th[3]));
+        tempFri = new ClassDays(f[0], Boolean.parseBoolean(f[1]), Boolean.parseBoolean(f[2]), Boolean.parseBoolean(f[3]));
+        tempSat = new ClassDays(s[0], Boolean.parseBoolean(s[1]), Boolean.parseBoolean(s[2]), Boolean.parseBoolean(s[3]));
+
+        String notification = getResources().getString(R.string.notifications);
+        String breakfast = "Breakfast";
+        String launch = "Launch";
+
+
+        verifyMorning(cb_breakfast, 3, tempMon, 19, 20, 0, 0, notification, breakfast);
+        verifyMorning(cb_breakfast, 3, tempTue, 19, 24, 0, 1, notification, breakfast);
+        //verifyMorning(cb_breakfast, 2, tempWed, 18, 9, 0, 2, notification, breakfast);
+        //verifyMorning(cb_breakfast, 2, tempThur, 18, 10, 0, 3, notification, breakfast);
+        //verifyMorning(cb_breakfast, 2, tempFri, 18, 11, 0, 4, notification, breakfast);
+        //verifyMorning(cb_breakfast, 2, tempSat, 18, 12, 0, 5, notification, breakfast);
+
+    }
+
+
+    public void verifyMorning(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
+             Calendar currentTime = Calendar.getInstance();
+             Calendar received;
+        
+
+               if ((checked == 1) && day.isMorning()) {
+            dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+        }
+    }
+
+    public void verifyEvening(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
+        if ((checked == 1) && day.isEvening()) {
+            dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+        }
+    }
+
+    public void verifyNight(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
+        if ((checked == 1) && day.isNight()) {
+            dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+        }
+    }
 
 }
