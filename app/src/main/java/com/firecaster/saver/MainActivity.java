@@ -242,11 +242,13 @@ public class MainActivity extends AppCompatActivity
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-       // alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+        // alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
 
+   public void verifyWeekNotifications () {
 
+    }
     public void getWeekNotifications() {
         SharedPreferences ch_SPreferences = getSharedPreferences(CHECKBOX_STATES, 0);
         SharedPreferences schedule_SPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
@@ -275,40 +277,85 @@ public class MainActivity extends AppCompatActivity
         tempFri = new ClassDays(f[0], Boolean.parseBoolean(f[1]), Boolean.parseBoolean(f[2]), Boolean.parseBoolean(f[3]));
         tempSat = new ClassDays(s[0], Boolean.parseBoolean(s[1]), Boolean.parseBoolean(s[2]), Boolean.parseBoolean(s[3]));
 
-        String notification = getResources().getString(R.string.notifications);
-        String breakfast = "Breakfast";
-        String launch = "Launch";
+        String notification = getResources().getString(R.string.app_name);
+        String breakfastTime = getResources().getString(R.string.breakfast_time);
+        String launchTime = getResources().getString(R.string.launch_time);
+        String dinnerTime = getResources().getString(R.string.dinner_time);
 
 
-        verifyMorning(cb_breakfast, 3, tempMon, 19, 20, 0, 0, notification, breakfast);
-        verifyMorning(cb_breakfast, 3, tempTue, 19, 24, 0, 1, notification, breakfast);
-        //verifyMorning(cb_breakfast, 2, tempWed, 18, 9, 0, 2, notification, breakfast);
-        //verifyMorning(cb_breakfast, 2, tempThur, 18, 10, 0, 3, notification, breakfast);
-        //verifyMorning(cb_breakfast, 2, tempFri, 18, 11, 0, 4, notification, breakfast);
-        //verifyMorning(cb_breakfast, 2, tempSat, 18, 12, 0, 5, notification, breakfast);
+        verifyMorning(cb_breakfast, 2, tempMon, 9, 50, 0, 0, notification, breakfastTime);
+        verifyMorning(cb_breakfast, 3, tempTue, 9, 50, 0, 1, notification, breakfastTime);
+        verifyMorning(cb_breakfast, 4, tempWed, 9, 50, 0, 2, notification, breakfastTime);
+        verifyMorning(cb_breakfast, 5, tempThur, 9, 50, 0, 3, notification, breakfastTime);
+        verifyMorning(cb_breakfast, 6, tempFri, 9, 50, 0, 4, notification, breakfastTime);
+        verifyMorning(cb_breakfast, 7, tempSat, 9, 50, 0, 5, notification, breakfastTime);
+
+        verifyEvening(cb_launch, 2, tempMon, 12, 0, 0, 6, notification, launchTime);
+        verifyEvening(cb_launch, 3, tempTue, 12, 0, 0, 7, notification, launchTime);
+        verifyEvening(cb_launch, 4, tempWed, 12, 0, 0, 8, notification, launchTime);
+        verifyEvening(cb_launch, 5, tempThur, 12, 0, 0, 9, notification, launchTime);
+        verifyEvening(cb_launch, 6, tempFri, 12, 0, 0, 10, notification, launchTime);
+        verifyEvening(cb_launch, 7, tempSat, 12, 0, 0, 11, notification, launchTime);
+
+        verifyNight(cb_dinner, 2, tempMon, 5, 0, 0, 12, notification, dinnerTime);
+        verifyNight(cb_dinner, 3, tempMon, 5, 0, 0, 13, notification, dinnerTime);
+        verifyNight(cb_dinner, 4, tempMon, 5, 0, 0, 14, notification, dinnerTime);
+        verifyNight(cb_dinner, 5, tempMon, 5, 0, 0, 15, notification, dinnerTime);
+        verifyNight(cb_dinner, 6, tempMon, 5, 0, 0, 16, notification, dinnerTime);
+        verifyNight(cb_dinner, 7, tempMon, 5, 0, 0, 17, notification, dinnerTime);
+
+
+
+
 
     }
 
+    public void loadDate(Calendar cal, int hour, int minutes, int seconds) {
+        int tmpYear = Calendar.getInstance().get(Calendar.YEAR);
+        int tmpMonth = Calendar.getInstance().get(Calendar.MONTH);
+        int tmpDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
+        cal.set(tmpYear, tmpMonth, tmpDay, hour, minutes, seconds);
+    }
 
     public void verifyMorning(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
-             Calendar currentTime = Calendar.getInstance();
-             Calendar received;
-        
+        Calendar currentTime = Calendar.getInstance();
+        Calendar received = Calendar.getInstance();
 
-               if ((checked == 1) && day.isMorning()) {
-            dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+        loadDate(received, hour, minutes, seconds);
+
+        if (received.after(currentTime)) {
+            if ((checked == 1) && day.isMorning()) {
+                dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+            }
         }
+
+
     }
 
     public void verifyEvening(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
-        if ((checked == 1) && day.isEvening()) {
-            dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+        Calendar currentTime = Calendar.getInstance();
+        Calendar received = Calendar.getInstance();
+
+        loadDate(received, hour, minutes, seconds);
+
+        if (received.after(currentTime)) {
+            if ((checked == 1) && day.isEvening()) {
+                dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+            }
         }
     }
 
     public void verifyNight(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
-        if ((checked == 1) && day.isNight()) {
-            dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+        Calendar currentTime = Calendar.getInstance();
+        Calendar received = Calendar.getInstance();
+
+        loadDate(received, hour, minutes, seconds);
+
+        if (received.after(currentTime)) {
+            if ((checked == 1) && day.isNight()) {
+                dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+            }
         }
     }
 

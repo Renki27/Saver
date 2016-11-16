@@ -226,6 +226,9 @@ aplicar salsa encima
     <string name="renting">Renting Service</string>
     <string name="zero">0</string>
     <string name="data_deleted">Application data deleted</string>
+    <string name="breakfast_time">Breakfast time!</string>
+    <string name="launch_time">Launch time!</string>
+    <string name="dinner_time">Dinner time!</string>
 
 
 </resources>
