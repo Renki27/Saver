@@ -226,6 +226,11 @@ aplicar salsa encima
     <string name="renting">Renting Service</string>
     <string name="zero">0</string>
     <string name="data_deleted">Application data deleted</string>
+    <string name="breakfastM">Breakfast →</string>
+    <string name="concept">Concept</string>
+    <string name="valued">Valued</string>
+    <string name="spent">Spent</string>
+    <string name="total">Total</string>
 
 
 </resources>
