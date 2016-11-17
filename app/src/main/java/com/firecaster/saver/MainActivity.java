@@ -269,6 +269,7 @@ public class MainActivity extends AppCompatActivity
     public void dailyAlarms(int dayOfWeek, int hour, int minutes, int seconds, int id, String title, String text) {
         Calendar calendar = Calendar.getInstance();
 
+
         calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minutes);
@@ -292,8 +293,7 @@ public class MainActivity extends AppCompatActivity
         if (getMonday.equals("No Data saved")) {
             saveEmptySchedule();
             getWeekNotifications();
-        }
-        else  {
+        } else {
             getWeekNotifications();
         }
     }
@@ -354,19 +354,20 @@ public class MainActivity extends AppCompatActivity
         verifyNight(cb_dinner, 7, tempMon, 5, 0, 0, 17, notification, dinnerTime);
     }
 
-    public void loadDate(Calendar cal, int hour, int minutes, int seconds) {
+    public void loadDate(Calendar current, Calendar received, int weekDay, int hour, int minutes, int seconds) {
         int tmpYear = Calendar.getInstance().get(Calendar.YEAR);
-        int tmpMonth = Calendar.getInstance().get(Calendar.MONTH);
-        int tmpDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        int tmpMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
+        int tmpDay = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
 
-        cal.set(tmpYear, tmpMonth, tmpDay, hour, minutes, seconds);
+        received.set(tmpYear, tmpMonth, weekDay, hour, minutes, seconds);
+        current.set(tmpYear, tmpMonth, tmpDay);
     }
 
     public void verifyMorning(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
         Calendar currentTime = Calendar.getInstance();
         Calendar received = Calendar.getInstance();
 
-        loadDate(received, hour, minutes, seconds);
+        loadDate(currentTime, received, dayOfWeek, hour, minutes, seconds);
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isMorning()) {
@@ -381,7 +382,7 @@ public class MainActivity extends AppCompatActivity
         Calendar currentTime = Calendar.getInstance();
         Calendar received = Calendar.getInstance();
 
-        loadDate(received, hour, minutes, seconds);
+        loadDate(currentTime, received, dayOfWeek, hour, minutes, seconds);
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isEvening()) {
@@ -394,7 +395,7 @@ public class MainActivity extends AppCompatActivity
         Calendar currentTime = Calendar.getInstance();
         Calendar received = Calendar.getInstance();
 
-        loadDate(received, hour, minutes, seconds);
+        loadDate(currentTime, received, dayOfWeek, hour, minutes, seconds);
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isNight()) {

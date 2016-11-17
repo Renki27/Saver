@@ -6,11 +6,15 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
 public class NotificationReceiver extends BroadcastReceiver{
 
+    private long[] vibrate = { 1000, 1000};
+    Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -29,9 +33,12 @@ public class NotificationReceiver extends BroadcastReceiver{
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.ic_action_schedule)
+                .setSmallIcon(R.drawable.ic_alarm_white)
                 .setContentTitle(title)
                 .setContentText(text)
+                .setVibrate(vibrate)
+                .setSound(alarmSound)
+                .setLights(1, 1000, 1000)
                 .setAutoCancel(true);
 
 
