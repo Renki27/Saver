@@ -42,8 +42,8 @@ public class Schedule extends AppCompatActivity {
         //inicializa las variables
         iniVar();
 
-        verifyUserData();
-
+        // verifyUserData();
+        getUserSchedule();
 
         resetButton = (Button) findViewById(R.id.reset_schedule);
         resetButton.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +80,7 @@ public class Schedule extends AppCompatActivity {
         saturday = new ClassDays("Saturday", sat_mor.isChecked(), sat_eve.isChecked(), sat_nig.isChecked());
     }
 
+    //posible metodo a borrar ya que ahora verifica en el main activity y no aqui
     public void verifyUserData() {
 
         SharedPreferences sharedPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);

@@ -42,16 +42,25 @@ public class MainActivity extends AppCompatActivity
     private TextView userName;
     private TextView userEmail;
     private ImageView userPictureURL;
-    private TextView Prev_val_1,Prev_val_2,Prev_val_3,Prev_val_4,Prev_val_5,Prev_val_6,Prev_val_7,Prev_val_8,Prev_val_9,Prev_val_10;
-    private TextView real_val1,real_val2,real_val3,real_val4,real_val5,real_val6,real_val7,real_val8,real_val9,real_val10;
+    private TextView Prev_val_1, Prev_val_2, Prev_val_3, Prev_val_4, Prev_val_5, Prev_val_6, Prev_val_7, Prev_val_8, Prev_val_9, Prev_val_10;
+    private TextView real_val1, real_val2, real_val3, real_val4, real_val5, real_val6, real_val7, real_val8, real_val9, real_val10;
     String n;
     String e;
     String p;
     public static final String USER_DATA_FILE = "UserGoogleDataFile";
     public static final String CHECKBOX_STATES = "checkboxStates";
     public static final String SCHEDULE_DATA_FILE = "UserScheduleFile";
+<<<<<<< HEAD
     private static final String SPENT_FILE = "UserSpent";
 
+=======
+    private ClassDays monday;
+    private ClassDays tuesday;
+    private ClassDays wednesday;
+    private ClassDays thursday;
+    private ClassDays friday;
+    private ClassDays saturday;
+>>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +89,13 @@ public class MainActivity extends AppCompatActivity
 
         getData();
 
-        getWeekNotifications();
+        verifyWeekNotifications();
 
         setTextView();
     }
 
     //crea los elementos de las parte grafica  del main
-    public void setTextView(){
+    public void setTextView() {
 
         Prev_val_1 = (TextView) findViewById(R.id.Prev_val_1);
         Prev_val_2 = (TextView) findViewById(R.id.Prev_val_2);
@@ -277,9 +286,18 @@ public class MainActivity extends AppCompatActivity
         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
 
-   public void verifyWeekNotifications () {
-
+    public void verifyWeekNotifications() {
+        SharedPreferences schedule_SPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
+        String getMonday = schedule_SPreferences.getString("Monday", "No Data saved");
+        if (getMonday.equals("No Data saved")) {
+            saveEmptySchedule();
+            getWeekNotifications();
+        }
+        else  {
+            getWeekNotifications();
+        }
     }
+
     public void getWeekNotifications() {
         SharedPreferences ch_SPreferences = getSharedPreferences(CHECKBOX_STATES, 0);
         SharedPreferences schedule_SPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
@@ -334,11 +352,6 @@ public class MainActivity extends AppCompatActivity
         verifyNight(cb_dinner, 5, tempMon, 5, 0, 0, 15, notification, dinnerTime);
         verifyNight(cb_dinner, 6, tempMon, 5, 0, 0, 16, notification, dinnerTime);
         verifyNight(cb_dinner, 7, tempMon, 5, 0, 0, 17, notification, dinnerTime);
-
-
-
-
-
     }
 
     public void loadDate(Calendar cal, int hour, int minutes, int seconds) {
@@ -388,6 +401,26 @@ public class MainActivity extends AppCompatActivity
                 dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
             }
         }
+    }
+
+    public void saveEmptySchedule() {
+
+        monday = new ClassDays("Monday", false, false, false);
+        tuesday = new ClassDays("Tuesday", false, false, false);
+        wednesday = new ClassDays("Wednesday", false, false, false);
+        thursday = new ClassDays("Thursday", false, false, false);
+        friday = new ClassDays("Friday", false, false, false);
+        saturday = new ClassDays("Saturday", false, false, false);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Monday", monday.toString());
+        editor.putString("Tuesday", tuesday.toString());
+        editor.putString("Wednesday", wednesday.toString());
+        editor.putString("Thursday", thursday.toString());
+        editor.putString("Friday", friday.toString());
+        editor.putString("Saturday", saturday.toString());
+        editor.commit();
     }
 
 }
