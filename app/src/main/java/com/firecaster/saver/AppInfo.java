@@ -31,8 +31,8 @@ public class AppInfo extends AppCompatActivity {
         us.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent licensesWindow = new Intent(AppInfo.this, Developers.class);
-                startActivity(licensesWindow);
+                Intent devs = new Intent(AppInfo.this, Developers.class);
+                startActivity(devs);
             }
         });
     }

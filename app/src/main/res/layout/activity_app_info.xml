@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -52,7 +53,7 @@
             android:id="@+id/bt_us"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/licenses"
+            android:text="@string/members"
             android:background="@drawable/pressed_transparent_button"
             android:textColor="@color/cyan"
             android:layout_alignBaseline="@+id/bt_licenses"
@@ -63,7 +64,7 @@
             android:id="@+id/bt_licenses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/members"
+            android:text="@string/licenses"
             android:background="@drawable/pressed_transparent_button"
             android:textColor="@color/cyan"
             android:layout_alignParentBottom="true"
