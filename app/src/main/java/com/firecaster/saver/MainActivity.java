@@ -44,14 +44,17 @@ public class MainActivity extends AppCompatActivity
     private ImageView userPictureURL;
     private TextView Prev_val_1, Prev_val_2, Prev_val_3, Prev_val_4, Prev_val_5, Prev_val_6, Prev_val_7, Prev_val_8, Prev_val_9, Prev_val_10;
     private TextView real_val1, real_val2, real_val3, real_val4, real_val5, real_val6, real_val7, real_val8, real_val9, real_val10;
+
     String n;
     String e;
     String p;
+
     public static final String USER_DATA_FILE = "UserGoogleDataFile";
     public static final String CHECKBOX_STATES = "checkboxStates";
     public static final String SCHEDULE_DATA_FILE = "UserScheduleFile";
-
     private static final String SPENT_FILE = "UserSpent";
+    private static final String VALUED_FILE= "UserValued";
+    public static final String VALUES = "values";
 
 
     private ClassDays monday;
@@ -69,7 +72,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -86,12 +88,182 @@ public class MainActivity extends AppCompatActivity
         userEmail = (TextView) header.findViewById(R.id.userGoogleEmail);
         userPictureURL = (ImageView) header.findViewById(R.id.userGooglePic);
 
-
         getData();
 
         verifyWeekNotifications();
 
         setTextView();
+
+        defTextView();
+    }
+
+
+
+    public void defTextView(){
+        SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
+
+        int breakfast = sp.getInt("breakfast", 0);
+        int launch = sp.getInt("launch", 0);
+        int dinner = sp.getInt("dinner", 0);
+        int transportation = sp.getInt("transportation", 0);
+
+        SharedPreferences spp = getSharedPreferences(VALUES, 0);
+
+        int internet = spp.getInt("internet", 0);
+        int water = spp.getInt("water", 0);
+        int electricity = spp.getInt("electricity", 0);
+        int renting = spp.getInt("renting", 0);
+        int extras = 0;
+
+        Prev_val_1.setText(Integer.toString(breakfast));
+        Prev_val_2.setText(Integer.toString(launch));
+        Prev_val_3.setText(Integer.toString(dinner));
+        Prev_val_4.setText(Integer.toString(transportation));
+        Prev_val_5.setText(Integer.toString(internet));
+        Prev_val_6.setText(Integer.toString(water));
+        Prev_val_7.setText(Integer.toString(electricity));
+        Prev_val_8.setText(Integer.toString(renting));
+        Prev_val_9.setText(Integer.toString(extras));
+
+    }
+
+    //valores de establecidos anteriormente
+    public int  values(int i) {
+        SharedPreferences sp = getSharedPreferences(VALUES, 0);
+
+        switch (i){
+            case 1 :
+                int breakfast = sp.getInt("breakfast", 0);
+                return breakfast;
+            case 2:
+                int launch = sp.getInt("launch", 0);
+                return launch;
+            case 3:
+                int dinner = sp.getInt("dinner", 0);
+                return dinner;
+            case 4:
+                int transportation = sp.getInt("transportation", 0);
+                return transportation;
+            case 5:
+                int internet = sp.getInt("internet", 0);
+                return internet;
+            case 6:
+                int water = sp.getInt("water", 0);
+                return water;
+            case 7 :
+                int electricity = sp.getInt("electricity", 0);
+                return electricity;
+            case 8:
+                int renting = sp.getInt("renting", 0);
+                return renting;
+        }
+
+        return 0;
+    }
+
+    //evalua que dia de la semana es
+    public void valuedValues(){
+        SharedPreferences ch_SPreferences = getSharedPreferences(CHECKBOX_STATES, 0);
+        SharedPreferences schedule_SPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
+        int cb_breakfast = ch_SPreferences.getInt("Breakfast", 0);
+        int cb_launch = ch_SPreferences.getInt("Launch", 0);
+        int cb_dinner = ch_SPreferences.getInt("Dinner", 0);
+        int cb_trans = ch_SPreferences.getInt("Transportation", 0);
+
+        String getMonday = schedule_SPreferences.getString("Monday", "No Data saved");
+        String getTuesday = schedule_SPreferences.getString("Tuesday", "No Data saved");
+        String getWednesday = schedule_SPreferences.getString("Wednesday", "No Data saved");
+        String getThursday = schedule_SPreferences.getString("Thursday", "No Data saved");
+        String getFriday = schedule_SPreferences.getString("Friday", "No Data saved");
+        String getSaturday = schedule_SPreferences.getString("Saturday", "No Data saved");
+        ClassDays tempMon, tempTue, tempWed, tempThur, tempFri, tempSat;
+
+        String m[] = getMonday.split("-");
+        String t[] = getTuesday.split("-");
+        String w[] = getWednesday.split("-");
+        String th[] = getThursday.split("-");
+        String f[] = getFriday.split("-");
+        String s[] = getSaturday.split("-");
+
+        tempMon = new ClassDays(m[0], Boolean.parseBoolean(m[1]), Boolean.parseBoolean(m[2]), Boolean.parseBoolean(m[3]));
+        tempTue = new ClassDays(t[0], Boolean.parseBoolean(t[1]), Boolean.parseBoolean(t[2]), Boolean.parseBoolean(t[3]));
+        tempWed = new ClassDays(w[0], Boolean.parseBoolean(w[1]), Boolean.parseBoolean(w[2]), Boolean.parseBoolean(w[3]));
+        tempThur = new ClassDays(th[0], Boolean.parseBoolean(th[1]), Boolean.parseBoolean(th[2]), Boolean.parseBoolean(th[3]));
+        tempFri = new ClassDays(f[0], Boolean.parseBoolean(f[1]), Boolean.parseBoolean(f[2]), Boolean.parseBoolean(f[3]));
+        tempSat = new ClassDays(s[0], Boolean.parseBoolean(s[1]), Boolean.parseBoolean(s[2]), Boolean.parseBoolean(s[3]));
+
+        Calendar c = Calendar.getInstance();
+        int last = c.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        for(int i = 1; i<last; i++){
+            c.set(Calendar.DAY_OF_MONTH,i);
+
+            switch (c.get(Calendar.DAY_OF_WEEK)){
+                case Calendar.MONDAY:
+                    writeData(tempMon, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    break;
+
+                case Calendar.TUESDAY:
+                    writeData(tempTue, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    break;
+
+                case Calendar.WEDNESDAY:
+                    writeData(tempWed, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    break;
+
+                case Calendar.THURSDAY:
+                    writeData(tempThur, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    break;
+
+                case Calendar.FRIDAY:
+                    writeData(tempFri, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    break;
+
+                case Calendar.SATURDAY:
+                    writeData(tempSat, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    break;
+            }
+        }
+
+    }
+
+    //escribe el archivo de los valores presupuestados
+    public void writeData(ClassDays days, int b, int l, int d, int t){
+        if(days.isMorning() && b == 1){
+            SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
+            int breakfast = sp.getInt("breakfast", 0);
+            SharedPreferences spp = getSharedPreferences(VALUED_FILE, 0);
+            SharedPreferences.Editor editor = spp.edit();
+            editor.putInt("breakfast", breakfast + values(1));
+            editor.commit();
+        }
+
+        if (days.isEvening() && l == 1){
+            SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
+            int launch = sp.getInt("launch", 0);
+            SharedPreferences spp = getSharedPreferences(VALUED_FILE, 0);
+            SharedPreferences.Editor editor = spp.edit();
+            editor.putInt("launch", launch + values(2));
+            editor.commit();
+        }
+
+        if (days.isNight() && d == 1){
+            SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
+            int dinner = sp.getInt("dinner", 0);
+            SharedPreferences spp = getSharedPreferences(VALUED_FILE, 0);
+            SharedPreferences.Editor editor = spp.edit();
+            editor.putInt("dinner", dinner + values(3));
+            editor.commit();
+        }
+
+        if((days.isEvening() || days.isNight() || days.isMorning()) && t == 1){
+            SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
+            int trans = sp.getInt("transportation", 0);
+            SharedPreferences spp = getSharedPreferences(VALUED_FILE, 0);
+            SharedPreferences.Editor editor = spp.edit();
+            editor.putInt("transportation", trans + values(4));
+            editor.commit();
+        }
     }
 
     //crea los elementos de las parte grafica  del main
@@ -121,7 +293,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
     public void getData() {
         SharedPreferences sharedPreferences = getSharedPreferences(USER_DATA_FILE, 0);
         n = sharedPreferences.getString("User_Name", "No Data");
@@ -142,7 +313,6 @@ public class MainActivity extends AppCompatActivity
                 .transform(new CircleTransform())
                 .into(userPictureURL);
     }
-
 
     //El metodo verifica si el drawer está cerrado, si no esta cerrado el boton atras locierta, si está cerrado verifica
     //para apretar dos veces para salir
@@ -290,10 +460,15 @@ public class MainActivity extends AppCompatActivity
     public void verifyWeekNotifications() {
         SharedPreferences schedule_SPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
         String getMonday = schedule_SPreferences.getString("Monday", "No Data saved");
+        SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
+        int breakfast = sp.getInt("breakfast", 0);
         if (getMonday.equals("No Data saved")) {
             saveEmptySchedule();
             getWeekNotifications();
         } else {
+            if(breakfast == 0){
+                valuedValues();
+            }
             getWeekNotifications();
         }
     }
