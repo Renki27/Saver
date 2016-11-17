@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     public static final String CHECKBOX_STATES = "checkboxStates";
     public static final String SCHEDULE_DATA_FILE = "UserScheduleFile";
     private static final String SPENT_FILE = "UserSpent";
-    private static final String VALUED_FILE= "UserValued";
+    private static final String VALUED_FILE = "UserValued";
     public static final String VALUES = "values";
 
 
@@ -98,8 +98,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
-    public void defTextView(){
+    public void defTextView() {
         SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
 
         int breakfast = sp.getInt("breakfast", 0);
@@ -128,11 +127,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     //valores de establecidos anteriormente
-    public int  values(int i) {
+    public int values(int i) {
         SharedPreferences sp = getSharedPreferences(VALUES, 0);
 
-        switch (i){
-            case 1 :
+        switch (i) {
+            case 1:
                 int breakfast = sp.getInt("breakfast", 0);
                 return breakfast;
             case 2:
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity
             case 6:
                 int water = sp.getInt("water", 0);
                 return water;
-            case 7 :
+            case 7:
                 int electricity = sp.getInt("electricity", 0);
                 return electricity;
             case 8:
@@ -162,7 +161,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     //evalua que dia de la semana es
-    public void valuedValues(){
+    public void valuedValues() {
         SharedPreferences ch_SPreferences = getSharedPreferences(CHECKBOX_STATES, 0);
         SharedPreferences schedule_SPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
         int cb_breakfast = ch_SPreferences.getInt("Breakfast", 0);
@@ -195,32 +194,32 @@ public class MainActivity extends AppCompatActivity
         Calendar c = Calendar.getInstance();
         int last = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-        for(int i = 1; i<last; i++){
-            c.set(Calendar.DAY_OF_MONTH,i);
+        for (int i = 1; i < last; i++) {
+            c.set(Calendar.DAY_OF_MONTH, i);
 
-            switch (c.get(Calendar.DAY_OF_WEEK)){
+            switch (c.get(Calendar.DAY_OF_WEEK)) {
                 case Calendar.MONDAY:
-                    writeData(tempMon, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    writeData(tempMon, cb_breakfast, cb_launch, cb_dinner, cb_trans);
                     break;
 
                 case Calendar.TUESDAY:
-                    writeData(tempTue, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    writeData(tempTue, cb_breakfast, cb_launch, cb_dinner, cb_trans);
                     break;
 
                 case Calendar.WEDNESDAY:
-                    writeData(tempWed, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    writeData(tempWed, cb_breakfast, cb_launch, cb_dinner, cb_trans);
                     break;
 
                 case Calendar.THURSDAY:
-                    writeData(tempThur, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    writeData(tempThur, cb_breakfast, cb_launch, cb_dinner, cb_trans);
                     break;
 
                 case Calendar.FRIDAY:
-                    writeData(tempFri, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    writeData(tempFri, cb_breakfast, cb_launch, cb_dinner, cb_trans);
                     break;
 
                 case Calendar.SATURDAY:
-                    writeData(tempSat, cb_breakfast,cb_launch,cb_dinner,cb_trans);
+                    writeData(tempSat, cb_breakfast, cb_launch, cb_dinner, cb_trans);
                     break;
             }
         }
@@ -228,8 +227,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     //escribe el archivo de los valores presupuestados
-    public void writeData(ClassDays days, int b, int l, int d, int t){
-        if(days.isMorning() && b == 1){
+    public void writeData(ClassDays days, int b, int l, int d, int t) {
+        if (days.isMorning() && b == 1) {
             SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
             int breakfast = sp.getInt("breakfast", 0);
             SharedPreferences spp = getSharedPreferences(VALUED_FILE, 0);
@@ -238,7 +237,7 @@ public class MainActivity extends AppCompatActivity
             editor.commit();
         }
 
-        if (days.isEvening() && l == 1){
+        if (days.isEvening() && l == 1) {
             SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
             int launch = sp.getInt("launch", 0);
             SharedPreferences spp = getSharedPreferences(VALUED_FILE, 0);
@@ -247,7 +246,7 @@ public class MainActivity extends AppCompatActivity
             editor.commit();
         }
 
-        if (days.isNight() && d == 1){
+        if (days.isNight() && d == 1) {
             SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
             int dinner = sp.getInt("dinner", 0);
             SharedPreferences spp = getSharedPreferences(VALUED_FILE, 0);
@@ -256,7 +255,7 @@ public class MainActivity extends AppCompatActivity
             editor.commit();
         }
 
-        if((days.isEvening() || days.isNight() || days.isMorning()) && t == 1){
+        if ((days.isEvening() || days.isNight() || days.isMorning()) && t == 1) {
             SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
             int trans = sp.getInt("transportation", 0);
             SharedPreferences spp = getSharedPreferences(VALUED_FILE, 0);
@@ -441,8 +440,7 @@ public class MainActivity extends AppCompatActivity
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minutes);
         calendar.set(Calendar.SECOND, seconds);
-        Toast.makeText(this, calendar.getTime().toString(), Toast.LENGTH_LONG).show();
-
+       
         Intent intent = new Intent(this, NotificationReceiver.class);
         intent.putExtra("ID", id);
         intent.putExtra("TITLE", title);
@@ -463,7 +461,7 @@ public class MainActivity extends AppCompatActivity
             saveEmptySchedule();
             getWeekNotifications();
         } else {
-            if(breakfast == 0){
+            if (breakfast == 0) {
                 valuedValues();
             }
             getWeekNotifications();
