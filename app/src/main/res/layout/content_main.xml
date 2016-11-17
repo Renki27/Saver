@@ -253,34 +253,7 @@
             />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/detail7"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"
-        android:id="@+id/detail8"></LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/detail8"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"
-        android:id="@+id/detail9"></LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_below="@+id/detail9"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"
-        android:id="@+id/detail10"></LinearLayout>
-
-    <LinearLayout
+     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="30dp"

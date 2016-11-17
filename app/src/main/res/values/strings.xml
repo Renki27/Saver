@@ -78,99 +78,7 @@
 
 
     <string name="changelog_list">
-        cubos de pollo condimentados
-cebolla picada
-hongos en rodajas
-cubos de ajo
-consome o cuadrito
-huevos
 
-ARROZ--------------------------------
-calentar el ajo en aceite
-agregar cebolla
-cuando se cristaliza agregar el pollo
-cuando se empieza a dorar el pollo agregar hongos
-salsa de tomate
-y tomate rallado
-cubo o consome
-agregar condimentos
-
-agregar arroz
-ponerlo en plato
-
-
-
-HUEVO---------------------------------
-
-poner huevo batido a cocinar y distribuirlo bien
-cuando está casi listo agregar el arroz
-doblarlo
---------------------
-
-ponerlo en plato y darle forma con servilleta o papel de cocina
-aplicar salsa encima
-                cubos de pollo condimentados
-cebolla picada
-hongos en rodajas
-cubos de ajo
-consome o cuadrito
-huevos
-
-ARROZ--------------------------------
-calentar el ajo en aceite
-agregar cebolla
-cuando se cristaliza agregar el pollo
-cuando se empieza a dorar el pollo agregar hongos
-salsa de tomate
-y tomate rallado
-cubo o consome
-agregar condimentos
-
-agregar arroz
-ponerlo en plato
-
-
-
-HUEVO---------------------------------
-
-poner huevo batido a cocinar y distribuirlo bien
-cuando está casi listo agregar el arroz
-doblarlo
---------------------
-
-ponerlo en plato y darle forma con servilleta o papel de cocina
-aplicar salsa encima
-                cubos de pollo condimentados
-cebolla picada
-hongos en rodajas
-cubos de ajo
-consome o cuadrito
-huevos
-
-ARROZ--------------------------------
-calentar el ajo en aceite
-agregar cebolla
-cuando se cristaliza agregar el pollo
-cuando se empieza a dorar el pollo agregar hongos
-salsa de tomate
-y tomate rallado
-cubo o consome
-agregar condimentos
-
-agregar arroz
-ponerlo en plato
-
-
-
-HUEVO---------------------------------
-
-poner huevo batido a cocinar y distribuirlo bien
-cuando está casi listo agregar el arroz
-doblarlo
---------------------
-
-ponerlo en plato y darle forma con servilleta o papel de cocina
-aplicar salsa encima
     </string>
     <string name="licenses">LICENSES</string>
     <string name="licenses_text">Used licenses</string>
@@ -226,17 +134,17 @@ aplicar salsa encima
     <string name="renting">Renting Service</string>
     <string name="zero">0</string>
     <string name="data_deleted">Application data deleted</string>
-<<<<<<< HEAD
+
     <string name="breakfast_time">Breakfast time!</string>
     <string name="launch_time">Launch time!</string>
     <string name="dinner_time">Dinner time!</string>
-=======
+
     <string name="breakfastM">Breakfast →</string>
     <string name="concept">Concept</string>
     <string name="valued">Valued</string>
     <string name="spent">Spent</string>
     <string name="total">Total</string>
->>>>>>> origin/master
+
 
 
 </resources>

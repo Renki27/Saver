@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity
     private TextView userName;
     private TextView userEmail;
     private ImageView userPictureURL;
+    private TextView Prev_val_1,Prev_val_2,Prev_val_3,Prev_val_4,Prev_val_5,Prev_val_6,Prev_val_7,Prev_val_8,Prev_val_9,Prev_val_10;
+    private TextView real_val1,real_val2,real_val3,real_val4,real_val5,real_val6,real_val7,real_val8,real_val9,real_val10;
     String n;
     String e;
     String p;
@@ -78,6 +80,35 @@ public class MainActivity extends AppCompatActivity
         getData();
 
         getWeekNotifications();
+
+        setTextView();
+    }
+
+    //crea los elementos de las parte grafica  del main
+    public void setTextView(){
+
+        Prev_val_1 = (TextView) findViewById(R.id.Prev_val_1);
+        Prev_val_2 = (TextView) findViewById(R.id.Prev_val_2);
+        Prev_val_3 = (TextView) findViewById(R.id.Prev_val_3);
+        Prev_val_4 = (TextView) findViewById(R.id.Prev_val_4);
+        Prev_val_5 = (TextView) findViewById(R.id.Prev_val_5);
+        Prev_val_6 = (TextView) findViewById(R.id.Prev_val_6);
+        Prev_val_7 = (TextView) findViewById(R.id.Prev_val_7);
+        Prev_val_8 = (TextView) findViewById(R.id.Prev_val_8);
+        Prev_val_9 = (TextView) findViewById(R.id.Prev_val_9);
+        Prev_val_10 = (TextView) findViewById(R.id.Prev_val_10);
+
+        real_val1 = (TextView) findViewById(R.id.real_val_1);
+        real_val2 = (TextView) findViewById(R.id.real_val_2);
+        real_val3 = (TextView) findViewById(R.id.real_val_3);
+        real_val4 = (TextView) findViewById(R.id.real_val_4);
+        real_val5 = (TextView) findViewById(R.id.real_val_5);
+        real_val6 = (TextView) findViewById(R.id.real_val_6);
+        real_val7 = (TextView) findViewById(R.id.real_val_7);
+        real_val8 = (TextView) findViewById(R.id.real_val_8);
+        real_val9 = (TextView) findViewById(R.id.real_val_9);
+        real_val10 = (TextView) findViewById(R.id.real_val_10);
+
     }
 
 
@@ -222,7 +253,6 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent);
         System.exit(0);
     }
-
 
     //RTC_Wakeup es para que sirva inclusio si el telefono esta bloqueado
     //Interval day para que sea diaria
