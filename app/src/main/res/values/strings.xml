@@ -152,6 +152,7 @@
     <string name="on">On</string>
     <string name="off">Off</string>
     <string name="others">Others</string>
+    <string name="members">MEMBERS</string>
 
 
 </resources>

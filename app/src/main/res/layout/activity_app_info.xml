@@ -11,11 +11,18 @@
     tools:context="com.firecaster.saver.AppInfo">
 
 
+    <View
+        android:id="@+id/view"
+        style="@style/Divider_medium"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignBottom="@+id/view"
+        android:layout_alignParentStart="true">
 
         <TextView
 
@@ -40,26 +47,31 @@
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
+
+        <Button
+            android:id="@+id/bt_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/licenses"
+            android:background="@drawable/pressed_transparent_button"
+            android:textColor="@color/cyan"
+            android:layout_alignBaseline="@+id/bt_licenses"
+            android:layout_alignBottom="@+id/bt_licenses"
+            android:layout_toEndOf="@+id/tv_version" />
+
         <Button
             android:id="@+id/bt_licenses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="80dp"
-            android:text="@string/licenses"
+            android:text="@string/members"
             android:background="@drawable/pressed_transparent_button"
             android:textColor="@color/cyan"
-            />
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/tv_version"
+            android:layout_marginBottom="46dp" />
 
 
     </RelativeLayout>
-
-    <View
-        android:id="@+id/view"
-        style="@style/Divider_medium"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
