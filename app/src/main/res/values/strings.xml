@@ -151,6 +151,7 @@
     <string name="main_screen_sound">Main screen sound</string>
     <string name="on">On</string>
     <string name="off">Off</string>
+    <string name="others">Others</string>
 
 
 </resources>
