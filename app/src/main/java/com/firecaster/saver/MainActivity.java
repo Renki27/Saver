@@ -95,9 +95,11 @@ public class MainActivity extends AppCompatActivity
         setTextView();
 
         defTextView();
+
+        addSpent();
     }
 
-
+    //setea valores previstos para los gastos
     public void defTextView() {
         SharedPreferences sp = getSharedPreferences(VALUED_FILE, 0);
 
@@ -123,6 +125,35 @@ public class MainActivity extends AppCompatActivity
         Prev_val_7.setText(Integer.toString(electricity));
         Prev_val_8.setText(Integer.toString(renting));
         Prev_val_9.setText(Integer.toString(extras));
+
+
+
+
+    }
+
+    //agregar valores gastados hasta la fecha
+    public  void addSpent(){
+        SharedPreferences sp = getSharedPreferences(SPENT_FILE, 0);
+
+        int extras = sp.getInt("extras", 0);
+        int breakfast = sp.getInt("breakfast", 0);
+        int launch = sp.getInt("launch", 0);
+        int dinner = sp.getInt("dinner", 0);
+        int trans = sp.getInt("transportation", 0);
+        int inter = sp.getInt( "internet", 0);
+        int water = sp.getInt("water", 0);
+        int elect = sp.getInt("electricity", 0);
+        int rent =  sp.getInt("renting", 0);
+
+        real_val1.setText(Integer.toString(breakfast));
+        real_val2.setText(Integer.toString(launch));
+        real_val3.setText(Integer.toString(dinner));
+        real_val4.setText(Integer.toString(trans));
+        real_val5.setText(Integer.toString(inter));
+        real_val6.setText(Integer.toString(water));
+        real_val7.setText(Integer.toString(elect));
+        real_val8.setText(Integer.toString(rent));
+        real_val9.setText(Integer.toString(extras));
 
     }
 
