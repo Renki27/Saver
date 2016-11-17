@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     public static final String USER_DATA_FILE = "UserGoogleDataFile";
     public static final String CHECKBOX_STATES = "checkboxStates";
     public static final String SCHEDULE_DATA_FILE = "UserScheduleFile";
+    private static final String SPENT_FILE = "UserSpent";
 
 
     @Override

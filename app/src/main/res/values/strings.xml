@@ -144,7 +144,8 @@
     <string name="valued">Valued</string>
     <string name="spent">Spent</string>
     <string name="total">Total</string>
-
+    <string name="extraExpenses">EXTRA EXPENSES</string>
+    <string name="Amount">Amount:</string>
 
 
 </resources>
