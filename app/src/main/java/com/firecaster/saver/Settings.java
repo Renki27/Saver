@@ -27,17 +27,20 @@ public class Settings extends AppCompatActivity {
     RadioButton dollars;
     String cs;
     public static final String CURRENCY_SELECTION = "currencySelection";
+    public static final String SOUND_SELECTION = "soundSelection";
     ListView settings_list;
     ListView currency_list;
+    ListView sound_list;
     int selectedCurrency = 0;
     int restoreSelectedCurrency;
+    int selectedSound;
+    int restoreSoundSelection;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
 
 
         verifyCurrencyValue();
@@ -85,14 +88,65 @@ public class Settings extends AppCompatActivity {
         });
 
 
+        sound_list = (ListView) findViewById(R.id.l_settings_sound);
+        ArrayAdapter<CharSequence> adapterSound = ArrayAdapter.createFromResource(this, R.array.sound_list, android.R.layout.simple_list_item_1);
+        sound_list.setAdapter(adapterSound);
+        //lista de sonido
+        sound_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                switch (i) {
+                    case 0:
+                        SoundAlertDialog();
+                        break;
+                }
+            }
+        });
+
 
     }
+
 
     public void saveCurrencySelection() {
         SharedPreferences sharedPreferences = getSharedPreferences(CURRENCY_SELECTION, 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("Currency", CURRENCY_SYMBOL);
         editor.commit();
+    }
+
+
+
+    private void SoundAlertDialog() {
+        String on = getResources().getString(R.string.on);
+        String off = getResources().getString(R.string.off);
+        final CharSequence[] items = {on, off};
+        restoreSoundSelection = getSelectedSound();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this);
+        builder.setTitle(R.string.sound);
+        builder.setSingleChoiceItems(items, restoreSoundSelection,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        selectedSound = item;
+                    }
+                });
+
+        builder.setPositiveButton(R.string.select, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                saveSoundSelection();
+            }
+        });
+
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+
+
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
 
@@ -148,7 +202,7 @@ public class Settings extends AppCompatActivity {
     public int getCurrency() {
         int temp = -1;
         SharedPreferences sharedPreferences = getSharedPreferences(CURRENCY_SELECTION, 0);
-        cs = sharedPreferences.getString("Currency", "No Data");
+        cs = sharedPreferences.getString("Currency", "0");
         switch (cs) {
             case "₡":
                 temp = 0;
@@ -161,11 +215,36 @@ public class Settings extends AppCompatActivity {
         return temp;
     }
 
+
+    public void saveSoundSelection() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SOUND_SELECTION, 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("Sound", selectedSound);
+        editor.commit();
+    }
+
+    public int getSelectedSound() {
+        int temp = -1;
+        SharedPreferences sharedPreferences = getSharedPreferences(SOUND_SELECTION, 0);
+        selectedSound = sharedPreferences.getInt("Sound", 0);
+        switch (selectedSound) {
+            case 0:
+                temp = 0;
+                break;
+
+            case 1:
+                temp = 1;
+                break;
+        }
+        return temp;
+    }
+
+
     public void verifyCurrencyValue() {
         String value = "₡";
         SharedPreferences sharedPreferences = getSharedPreferences(CURRENCY_SELECTION, 0);
         String csTemp = sharedPreferences.getString("Currency", "No Data");
-        if(csTemp.equals("No Data")) {
+        if (csTemp.equals("No Data")) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("Currency", value);
             editor.commit();

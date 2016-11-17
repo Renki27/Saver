@@ -146,6 +146,12 @@
     <string name="total">Total</string>
     <string name="extraExpenses">EXTRA EXPENSES</string>
     <string name="Amount">Amount:</string>
+    <string name="summary">SUMMARY</string>
+    <string name="sound">Sound</string>
+    <string name="main_screen_sound">Main screen sound</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="others">Others</string>
 
 
 </resources>

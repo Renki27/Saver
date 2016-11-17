@@ -396,9 +396,6 @@ public class MainActivity extends AppCompatActivity
             Intent aboutApp = new Intent(MainActivity.this, AboutApp.class);
             startActivity(aboutApp);
 
-        } else if (id == R.id.nav_confVariables) {
-
-
         } else if (id == R.id.nav_extra) {
             Intent extras = new Intent(MainActivity.this, Extras.class);
             startActivity(extras);
