@@ -50,17 +50,17 @@ public class MainActivity extends AppCompatActivity
     public static final String USER_DATA_FILE = "UserGoogleDataFile";
     public static final String CHECKBOX_STATES = "checkboxStates";
     public static final String SCHEDULE_DATA_FILE = "UserScheduleFile";
-<<<<<<< HEAD
+
     private static final String SPENT_FILE = "UserSpent";
 
-=======
+
     private ClassDays monday;
     private ClassDays tuesday;
     private ClassDays wednesday;
     private ClassDays thursday;
     private ClassDays friday;
     private ClassDays saturday;
->>>>>>> origin/master
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
