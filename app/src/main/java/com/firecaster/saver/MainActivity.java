@@ -547,12 +547,12 @@ public class MainActivity extends AppCompatActivity
         verifyEvening(cb_launch, 6, tempFri, 12, 0, 0, 10, notification, launchTime);
         verifyEvening(cb_launch, 7, tempSat, 12, 0, 0, 11, notification, launchTime);
 
-        verifyNight(cb_dinner, 2, tempMon, 5, 0, 0, 12, notification, dinnerTime);
-        verifyNight(cb_dinner, 3, tempMon, 5, 0, 0, 13, notification, dinnerTime);
-        verifyNight(cb_dinner, 4, tempMon, 5, 0, 0, 14, notification, dinnerTime);
-        verifyNight(cb_dinner, 5, tempMon, 5, 0, 0, 15, notification, dinnerTime);
-        verifyNight(cb_dinner, 6, tempMon, 5, 0, 0, 16, notification, dinnerTime);
-        verifyNight(cb_dinner, 7, tempMon, 5, 0, 0, 17, notification, dinnerTime);
+        verifyNight(cb_dinner, 2, tempMon, 17, 0, 0, 12, notification, dinnerTime);
+        verifyNight(cb_dinner, 3, tempMon, 17, 0, 0, 13, notification, dinnerTime);
+        verifyNight(cb_dinner, 4, tempMon, 17, 0, 0, 14, notification, dinnerTime);
+        verifyNight(cb_dinner, 5, tempMon, 17, 0, 0, 15, notification, dinnerTime);
+        verifyNight(cb_dinner, 6, tempMon, 17, 0, 0, 16, notification, dinnerTime);
+        verifyNight(cb_dinner, 7, tempMon, 17, 0, 0, 17, notification, dinnerTime);
     }
 
     public void loadDate(Calendar current, Calendar received, int weekDay, int hour, int minutes, int seconds) {

@@ -9,13 +9,11 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-
     <application
-        android:name="com.firecaster.saver.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -217,7 +215,7 @@
                 android:value=".MainActivity" />
         </activity>
 
-        <!--GlogOut-->
+        <!-- GlogOut -->
         <activity
             android:name=".GLogOut"
             android:label="@string/sign_out_accounts"
@@ -229,10 +227,37 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <!-- GlogOut -->
 
-        <activity android:name=".RepeatingActivity"></activity>
+        <activity android:name=".RepeatingActivity" />
 
-        <receiver android:name=".NotificationReceiver"></receiver>
+        <receiver android:name=".NotificationReceiver" />
+
+        <!--FAQ-->
+        <activity
+            android:name=".FAQ"
+            android:label="@string/faq"
+            android:parentActivityName=".AboutApp"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AboutApp" />
+
+        </activity>
+
+        <!--DEVELOPERS-->
+        <activity
+            android:name=".Developers"
+            android:label="@string/Developers"
+            android:parentActivityName=".AppInfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AppInfo" />
+
+        </activity>
 
     </application>
 

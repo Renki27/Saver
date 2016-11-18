@@ -266,7 +266,7 @@ public class InitialConfiguration extends AppCompatActivity {
         setCheckboxStates(cb_renting, rent);
     }
 
-       // verifica un checkbox
+    // verifica un checkbox
     public int verifyCheckBox(CheckBox cb) {
         if (cb.isChecked()) {
             return 1;
@@ -321,7 +321,6 @@ public class InitialConfiguration extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(CURRENCY_SELECTION, 0);
         cs = sharedPreferences.getString("Currency", "No Data");
     }
-
 
 
     //verifica el checkbox

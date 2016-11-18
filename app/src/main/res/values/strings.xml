@@ -155,6 +155,10 @@
     <string name="members">MEMBERS</string>
     <string name="Developers">Developers</string>
     <string name="developer">Developers</string>
+    <string name="richard">Richard Sancho Chávez</string>
+    <string name="emilio">Emilio José Rojas Herrera</string>
+    <string name="isaac">Isaac Rojas Sánchez</string>
+    <string name="kevin">Kevin Salazar Araya</string>
 
 
 </resources>
