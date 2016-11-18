@@ -471,7 +471,7 @@ public class MainActivity extends AppCompatActivity
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minutes);
         calendar.set(Calendar.SECOND, seconds);
-       
+
         Intent intent = new Intent(this, NotificationReceiver.class);
         intent.putExtra("ID", id);
         intent.putExtra("TITLE", title);
