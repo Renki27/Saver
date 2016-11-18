@@ -31,7 +31,7 @@ public class AppInfo extends AppCompatActivity {
         us.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent devs = new Intent(AppInfo.this, Developers.class);
+                Intent devs = new Intent(AppInfo.this, DevelopersInfo.class);
                 startActivity(devs);
             }
         });

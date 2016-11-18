@@ -11,34 +11,25 @@
     tools:context="com.firecaster.saver.Extras">
 
 
+    <!--ems para agregar 10 digitos-->
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
+        android:hint="@string/value"
         android:id="@+id/amount"
+        android:gravity="center"
         android:layout_centerVertical="true"
         android:layout_alignStart="@+id/save"
         android:textColor="@android:color/holo_red_light" />
 
-    <TextView
-        android:text="@string/Amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:textSize="25sp"
-        android:textAllCaps="true"
-        android:layout_above="@+id/save"
-        android:layout_alignTop="@+id/amount"
-        android:layout_alignParentStart="true" />
-
     <Button
-        android:text="@string/save"
+        android:text="@string/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
         android:id="@+id/save"
-        android:elevation="11dp"
         android:layout_below="@+id/amount"
         android:layout_centerHorizontal="true"
         android:onClick="saveButton"/>
@@ -56,4 +47,15 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="88dp" />
+
+    <TextView
+        android:text="@string/Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textSize="25sp"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:layout_alignTop="@+id/amount"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

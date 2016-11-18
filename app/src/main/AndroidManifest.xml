@@ -233,7 +233,7 @@
 
         <receiver android:name=".NotificationReceiver" />
 
-        <!--FAQ-->
+        <!-- FAQ -->
         <activity
             android:name=".FAQ"
             android:label="@string/faq"
@@ -243,12 +243,11 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AboutApp" />
-
         </activity>
 
-        <!--DEVELOPERS-->
+        <!-- DEVELOPERS -->
         <activity
-            android:name=".Developers"
+            android:name=".DevelopersInfo"
             android:label="@string/Developers"
             android:parentActivityName=".AppInfo"
             android:screenOrientation="portrait"
@@ -258,7 +257,6 @@
                 android:value=".AppInfo" />
 
         </activity>
-
     </application>
 
 </manifest>
