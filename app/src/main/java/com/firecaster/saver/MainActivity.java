@@ -133,11 +133,10 @@ public class MainActivity extends AppCompatActivity
         Prev_val_10.setText(Integer.toString(totalV));
 
 
-
     }
 
     //agregar valores gastados hasta la fecha
-    public  void addSpent(){
+    public void addSpent() {
         SharedPreferences sp = getSharedPreferences(SPENT_FILE, 0);
 
         int extras = sp.getInt("extras", 0);
@@ -145,10 +144,10 @@ public class MainActivity extends AppCompatActivity
         int launch = sp.getInt("launch", 0);
         int dinner = sp.getInt("dinner", 0);
         int trans = sp.getInt("transportation", 0);
-        int inter = sp.getInt( "internet", 0);
+        int inter = sp.getInt("internet", 0);
         int water = sp.getInt("water", 0);
         int elect = sp.getInt("electricity", 0);
-        int rent =  sp.getInt("renting", 0);
+        int rent = sp.getInt("renting", 0);
 
         real_val1.setText(Integer.toString(breakfast));
         real_val2.setText(Integer.toString(launch));
@@ -566,35 +565,28 @@ public class MainActivity extends AppCompatActivity
         verifyNight(cb_dinner, 7, tempSat, 17, 0, 0, 17, notification, dinnerTime);
     }
 
-    public void loadDate(Calendar current, Calendar received, int weekDay, int hour, int minutes, int seconds) {
+    public void loadDate(Calendar received, int weekDay, int hour, int minutes, int seconds) {
         int tmpYear = Calendar.getInstance().get(Calendar.YEAR);
         int tmpMonth = Calendar.getInstance().get(Calendar.MONTH);
+        int tmpDayofMonth = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 
-        //received.set(tmpYear, tmpMonth, weekDay, hour, minutes, seconds);
 
-
-        received.set(tmpYear, tmpMonth, weekDay, hour, minutes, seconds);
+        received.set(tmpYear, tmpMonth, tmpDayofMonth, hour, minutes, seconds);
         received.set(Calendar.DAY_OF_WEEK, weekDay);
-        //current.set(tmpYear, tmpMonth, tmpDay);
 
 
     }
 
     public void verifyMorning(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
         String TAG = "PRUEBA: ";
-
         Calendar currentTime = Calendar.getInstance();
 
-        Log.d(TAG, currentTime.getTime().toString());
 
         Calendar received = Calendar.getInstance();
 
-        loadDate(currentTime, received, dayOfWeek, hour, minutes, seconds);
+        loadDate(received, dayOfWeek, hour, minutes, seconds);
 
-
-        Log.d(TAG, currentTime.getTime().toString());
         Log.d(TAG, received.getTime().toString());
-
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isMorning()) {
@@ -609,7 +601,7 @@ public class MainActivity extends AppCompatActivity
         Calendar currentTime = Calendar.getInstance();
         Calendar received = Calendar.getInstance();
 
-        loadDate(currentTime, received, dayOfWeek, hour, minutes, seconds);
+        loadDate(received, dayOfWeek, hour, minutes, seconds);
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isEvening()) {
@@ -622,7 +614,7 @@ public class MainActivity extends AppCompatActivity
         Calendar currentTime = Calendar.getInstance();
         Calendar received = Calendar.getInstance();
 
-        loadDate(currentTime, received, dayOfWeek, hour, minutes, seconds);
+        loadDate(received, dayOfWeek, hour, minutes, seconds);
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isNight()) {
