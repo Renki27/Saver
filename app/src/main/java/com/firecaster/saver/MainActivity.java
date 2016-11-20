@@ -568,13 +568,8 @@ public class MainActivity extends AppCompatActivity
     public void loadDate(Calendar received, int weekDay, int hour, int minutes, int seconds) {
         int tmpYear = Calendar.getInstance().get(Calendar.YEAR);
         int tmpMonth = Calendar.getInstance().get(Calendar.MONTH);
-<<<<<<< HEAD
-         int tmpDayofMonth = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-=======
+        int tmpDayofMonth = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 
-        //received.set(tmpYear, tmpMonth, weekDay, hour, minutes, seconds);
-
->>>>>>> origin/master
 
         received.set(tmpYear, tmpMonth, tmpDayofMonth, hour, minutes, seconds);
         received.set(Calendar.DAY_OF_WEEK, weekDay);
@@ -591,7 +586,7 @@ public class MainActivity extends AppCompatActivity
 
         loadDate(received, dayOfWeek, hour, minutes, seconds);
 
-        Log.d(TAG,received.getTime().toString());
+        Log.d(TAG, received.getTime().toString());
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isMorning()) {
