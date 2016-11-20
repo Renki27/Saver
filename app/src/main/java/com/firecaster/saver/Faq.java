@@ -4,7 +4,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class FAQ extends AppCompatActivity {
+public class Faq extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -81,7 +81,9 @@
 
     </string>
     <string name="licenses">LICENSES</string>
-    <string name="licenses_text">Used licenses</string>
+    <string name="licenses_text">By means of this KREI Software Development prohibits the copy of the characteristics of this software and of any source code that contains.
+The permits extend to the free use of the application and the disclosure of its use.
+Updates will be issued periodically to improve the performance of the features and keep the system up to date.</string>
     <string name="initial_config">Initial Configuration</string>
     <string name="data_saved_successfully">Data saved successfully!</string>
     <string name="error_source_not_found">Source not found!</string>
@@ -166,6 +168,13 @@
     <string name="how_much_money">How much money have you used?</string>
     <string name="ok">OK!</string>
     <string name="network_error">Failed to sign in!, Please check your network connection and try again.</string>
+    <string name="frecuent">Frequent Questions</string>
+    <string name="question1">The informational dates updates by themself or shoud I do it myself?</string>
+    <string name="answer1">They update automatically.</string>
+    <string name="question2">If my session is closed I lose the data?</string>
+    <string name="answer2">Yes, you will lose it. But we are working on fix this issue.</string>
+    <string name="question3">Will I always see the push notifications?</string>
+    <string name="answer3">Yes. You\'ll only stop seeing them after you reset your phone, but if you start the app again they\'ll start apearing again.</string>
 
 
 </resources>
