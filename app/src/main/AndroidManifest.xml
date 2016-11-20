@@ -233,7 +233,7 @@
 
         <!-- FAQ -->
         <activity
-            android:name=".FAQ"
+            android:name=".Faq"
             android:label="@string/faq"
             android:parentActivityName=".AboutApp"
             android:screenOrientation="portrait"
