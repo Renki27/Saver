@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -116,6 +117,7 @@ public class MainActivity extends AppCompatActivity
         int renting = spp.getInt("renting", 0);
         int extras = 0;
 
+
         Prev_val_1.setText(Integer.toString(breakfast));
         Prev_val_2.setText(Integer.toString(launch));
         Prev_val_3.setText(Integer.toString(dinner));
@@ -126,6 +128,9 @@ public class MainActivity extends AppCompatActivity
         Prev_val_8.setText(Integer.toString(renting));
         Prev_val_9.setText(Integer.toString(extras));
 
+        int totalV = breakfast + launch + dinner + transportation + internet + water + electricity + renting;
+
+        Prev_val_10.setText(Integer.toString(totalV));
 
 
 
@@ -154,6 +159,10 @@ public class MainActivity extends AppCompatActivity
         real_val7.setText(Integer.toString(elect));
         real_val8.setText(Integer.toString(rent));
         real_val9.setText(Integer.toString(extras));
+
+        int total = extras + breakfast + launch + dinner + trans + inter + water + elect + rent;
+
+        real_val10.setText(Integer.toString(total));
 
     }
 
@@ -478,6 +487,7 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra("TEXT", text);
         intent.putExtra("ACTION", enter);
 
+
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         // alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
@@ -534,8 +544,7 @@ public class MainActivity extends AppCompatActivity
         String dinnerTime = getResources().getString(R.string.dinner_time);
 
 
-        verifyMorning(cb_breakfast, 1, tempSat, 3, 39, 0, 0, notification, breakfastTime);
-     /*   verifyMorning(cb_breakfast, 2, tempMon, 9, 50, 0, 0, notification, breakfastTime);
+        verifyMorning(cb_breakfast, 2, tempMon, 9, 50, 0, 0, notification, breakfastTime);
         verifyMorning(cb_breakfast, 3, tempTue, 9, 50, 0, 1, notification, breakfastTime);
         verifyMorning(cb_breakfast, 4, tempWed, 9, 50, 0, 2, notification, breakfastTime);
         verifyMorning(cb_breakfast, 5, tempThur, 9, 50, 0, 3, notification, breakfastTime);
@@ -554,23 +563,39 @@ public class MainActivity extends AppCompatActivity
         verifyNight(cb_dinner, 4, tempWed, 17, 0, 0, 14, notification, dinnerTime);
         verifyNight(cb_dinner, 5, tempThur, 17, 0, 0, 15, notification, dinnerTime);
         verifyNight(cb_dinner, 6, tempFri, 17, 0, 0, 16, notification, dinnerTime);
-        verifyNight(cb_dinner, 7, tempSat, 17, 0, 0, 17, notification, dinnerTime);*/
+        verifyNight(cb_dinner, 7, tempSat, 17, 0, 0, 17, notification, dinnerTime);
     }
 
     public void loadDate(Calendar current, Calendar received, int weekDay, int hour, int minutes, int seconds) {
         int tmpYear = Calendar.getInstance().get(Calendar.YEAR);
-        int tmpMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
-        int tmpDay = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        int tmpMonth = Calendar.getInstance().get(Calendar.MONTH);
+        int tmpDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) ;
+
+        //received.set(tmpYear, tmpMonth, weekDay, hour, minutes, seconds);
+
 
         received.set(tmpYear, tmpMonth, weekDay, hour, minutes, seconds);
-        current.set(tmpYear, tmpMonth, tmpDay);
+        received.set(Calendar.DAY_OF_WEEK, weekDay);
+        //current.set(tmpYear, tmpMonth, tmpDay);
+
+
     }
 
     public void verifyMorning(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
+        String TAG = "PRUEBA: ";
+
         Calendar currentTime = Calendar.getInstance();
+
+        Log.d(TAG, currentTime.getTime().toString());
+
         Calendar received = Calendar.getInstance();
 
         loadDate(currentTime, received, dayOfWeek, hour, minutes, seconds);
+
+
+        Log.d(TAG, currentTime.getTime().toString());
+        Log.d(TAG, received.getTime().toString());
+
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isMorning()) {
