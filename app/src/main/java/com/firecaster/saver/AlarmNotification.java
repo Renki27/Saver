@@ -146,14 +146,14 @@ public class AlarmNotification extends AppCompatActivity {
                 int lc = sp.getInt("launch", 0);
                 lc = lc + Integer.parseInt(amount.getText().toString());
 
-                editor.putInt("breakfast", lc);
+                editor.putInt("launch", lc);
                 editor.commit();
                 break;
             case "Dinner time!":
                 int din = sp.getInt("dinner", 0);
                 din = din + Integer.parseInt(amount.getText().toString());
 
-                editor.putInt("breakfast", din);
+                editor.putInt("dinner", din);
                 editor.commit();
                 break;
             default:
