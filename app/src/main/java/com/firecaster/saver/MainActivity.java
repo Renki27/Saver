@@ -569,7 +569,6 @@ public class MainActivity extends AppCompatActivity
     public void loadDate(Calendar current, Calendar received, int weekDay, int hour, int minutes, int seconds) {
         int tmpYear = Calendar.getInstance().get(Calendar.YEAR);
         int tmpMonth = Calendar.getInstance().get(Calendar.MONTH);
-        int tmpDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) ;
 
         //received.set(tmpYear, tmpMonth, weekDay, hour, minutes, seconds);
 
