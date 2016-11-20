@@ -2,6 +2,7 @@ package com.firecaster.saver;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class AlarmNotification extends AppCompatActivity {
     String title;
     public static final String VALUES = "values";
     public static final String CURRENCY_SELECTION = "currencySelection";
+    private static final String SPENT = "UserSpent";
     int notificationID;
     int breakfast = 0;
     int launch = 0;
@@ -53,9 +55,10 @@ public class AlarmNotification extends AppCompatActivity {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                writeInfo();
                 turnOffUI();
-
                 finish();
+
 
             }
         });
@@ -85,6 +88,39 @@ public class AlarmNotification extends AppCompatActivity {
         notificationDismiss();
 
     }
+
+    public void writeInfo () {
+        SharedPreferences sp = getSharedPreferences(SPENT, 0);
+        SharedPreferences spp = getSharedPreferences(SPENT, 0);
+        SharedPreferences.Editor editor = spp.edit();
+        switch (title) {
+            case "Breakfast time!":
+                int bf = sp.getInt("breakfast", 0);
+                bf = bf + Integer.parseInt(amount.getText().toString());
+
+                editor.putInt("breakfast", bf);
+                editor.commit();
+                break;
+            case "Launch time!":
+                int lc = sp.getInt("launch", 0);
+                lc = lc + Integer.parseInt(amount.getText().toString());
+
+                editor.putInt("breakfast", lc);
+                editor.commit();
+                break;
+            case "Dinner time!":
+                int din = sp.getInt("dinner", 0);
+                din = din + Integer.parseInt(amount.getText().toString());
+
+                editor.putInt("breakfast", din);
+                editor.commit();
+                break;
+            default:
+
+
+        }
+    }
+
 
 
     public void turnOnUI() {
