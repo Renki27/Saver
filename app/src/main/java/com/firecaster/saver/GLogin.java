@@ -33,7 +33,7 @@ public class GLogin extends AppCompatActivity implements View.OnClickListener, G
 
     private static final String TAG = GLogin.class.getSimpleName();
     private static final int RC_SIGN_IN = 007;
-
+    private boolean firsTime = true;
     private GoogleApiClient mGoogleApiClient;
     private ProgressDialog mProgressDialog;
     private SmallBang mSmallBang;
@@ -145,7 +145,14 @@ public class GLogin extends AppCompatActivity implements View.OnClickListener, G
                     + ", Image: " + personPhotoUrl);
 
 
-            setConection(true);
+            setConnection(true);
+        }
+        else {
+            if (!firsTime)  {
+                setConnection(false);
+            }
+            firsTime = false;
+
         }
 
 
@@ -211,15 +218,17 @@ public class GLogin extends AppCompatActivity implements View.OnClickListener, G
         }
     }
 
-    private void setConection(boolean isSignedIn) {
+    private void setConnection(boolean isSignedIn) {
         if (isSignedIn) {
+            firsTime = false;
             saveUserData();
             finish();
             Intent main = new Intent(GLogin.this, MainActivity.class);
             startActivity(main);
 
         } else {
-            Toast.makeText(this, R.string.login_failed, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.network_error, Toast.LENGTH_LONG).show();
+
         }
     }
 

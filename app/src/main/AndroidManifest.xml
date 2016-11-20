@@ -229,8 +229,6 @@
 
         <!-- GlogOut -->
 
-        <activity android:name=".RepeatingActivity" />
-
         <receiver android:name=".NotificationReceiver" />
 
         <!-- FAQ -->
@@ -255,6 +253,12 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AppInfo" />
+        </activity>
+
+        <!--notification window-->
+        <activity
+            android:name=".AlarmNotification"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         </activity>
     </application>

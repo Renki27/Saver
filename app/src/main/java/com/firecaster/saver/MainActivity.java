@@ -465,7 +465,7 @@ public class MainActivity extends AppCompatActivity
     //Interval day para que sea diaria
     public void dailyAlarms(int dayOfWeek, int hour, int minutes, int seconds, int id, String title, String text) {
         Calendar calendar = Calendar.getInstance();
-
+        String enter = getResources().getString(R.string.enter);
 
         calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
@@ -476,6 +476,7 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra("ID", id);
         intent.putExtra("TITLE", title);
         intent.putExtra("TEXT", text);
+        intent.putExtra("ACTION", enter);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -533,7 +534,8 @@ public class MainActivity extends AppCompatActivity
         String dinnerTime = getResources().getString(R.string.dinner_time);
 
 
-        verifyMorning(cb_breakfast, 2, tempMon, 9, 50, 0, 0, notification, breakfastTime);
+        verifyMorning(cb_breakfast, 1, tempSat, 3, 39, 0, 0, notification, breakfastTime);
+     /*   verifyMorning(cb_breakfast, 2, tempMon, 9, 50, 0, 0, notification, breakfastTime);
         verifyMorning(cb_breakfast, 3, tempTue, 9, 50, 0, 1, notification, breakfastTime);
         verifyMorning(cb_breakfast, 4, tempWed, 9, 50, 0, 2, notification, breakfastTime);
         verifyMorning(cb_breakfast, 5, tempThur, 9, 50, 0, 3, notification, breakfastTime);
@@ -552,7 +554,7 @@ public class MainActivity extends AppCompatActivity
         verifyNight(cb_dinner, 4, tempWed, 17, 0, 0, 14, notification, dinnerTime);
         verifyNight(cb_dinner, 5, tempThur, 17, 0, 0, 15, notification, dinnerTime);
         verifyNight(cb_dinner, 6, tempFri, 17, 0, 0, 16, notification, dinnerTime);
-        verifyNight(cb_dinner, 7, tempSat, 17, 0, 0, 17, notification, dinnerTime);
+        verifyNight(cb_dinner, 7, tempSat, 17, 0, 0, 17, notification, dinnerTime);*/
     }
 
     public void loadDate(Calendar current, Calendar received, int weekDay, int hour, int minutes, int seconds) {
