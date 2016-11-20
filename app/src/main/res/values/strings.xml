@@ -166,6 +166,17 @@
     <string name="how_much_money">How much money have you used?</string>
     <string name="ok">OK!</string>
     <string name="network_error">Failed to sign in!, Please check your network connection and try again.</string>
+    <string name="licenses_text1">This software is the property of \"KREI Software Development\" created under academic objectives of the University of Costa Rica Sede Occidente for the course \"Computer Applied to Business (IF-6201)\" of the Business Informatics course. \n\nThis software is not allowed to be reproduced, copied or sold under any circumstances, in case any of these activities are detected, the corresponding legal measures of the case will have to be applied.  \n\n\nCopyright © 2016 by KREI Software Development</string>
+    <string name="question1">1. At what point did you stop receiving notifications?</string>
+    <string name="answer1">When the device shuts down or restarts notifications will not be triggered until notifications start again</string>
+    <string name="question2">2. What are the first steps for my application to start working?</string>
+    <string name="answer2">Enter your weekly university hours and then configure which values ​​you want to contemplate in the budget</string>
+    <string name="question3">3. Can I check important dates in the university calendar to avoid looking at pages of the institution?</string>
+    <string name="answer3">Of course you can enter in the calendar tab and observe the events attached and color coded according to your objective</string>
+    <string name="question4">4. Is it possible to visit the official university websites from the application?</string>
+    <string name="answer4">In the section of external links can enter the site of matrícula, office of collections, scholarships, etc.</string>
+    <string name="question5">5. What happens if I make an extra expense and do not want to enter the application?</string>
+    <string name="answer5">You can report the amounts of your extra expenses in the application by entering the extras tab and entering the amount</string>
 
 
 </resources>
