@@ -75,16 +75,12 @@
     <string name="other">Others</string>
     <string name="feedback_options">Feedback options</string>
     <string name="feature_request">Feature request</string>
-
-
     <string name="changelog_list">
-
     </string>
     <string name="licenses">LICENSES</string>
     <string name="licenses_text">By means of this KREI Software Development prohibits the copy of the characteristics of this software and of any source code that contains.
 The permits extend to the free use of the application and the disclosure of its use.
 Updates will be issued periodically to improve the performance of the features and keep the system up to date.</string>
-    <string name="initial_config">Initial Configuration</string>
     <string name="initial_config">Initial Configuration</string>
     <string name="data_saved_successfully">Data saved successfully!</string>
     <string name="error_source_not_found">Source not found!</string>
@@ -169,6 +165,7 @@ Updates will be issued periodically to improve the performance of the features a
     <string name="how_much_money">How much money have you used?</string>
     <string name="ok">OK!</string>
     <string name="network_error">Failed to sign in!, Please check your network connection and try again.</string>
+
     <string name="licenses_text1">This software is the property of \"KREI Software Development\" created under academic objectives of the University of Costa Rica Sede Occidente for the course \"Computer Applied to Business (IF-6201)\" of the Business Informatics course. \n\nThis software is not allowed to be reproduced, copied or sold under any circumstances, in case any of these activities are detected, the corresponding legal measures of the case will have to be applied.\n\nThe permits extend to the free use of the application and the disclosure of its use.
 Updates will be issued periodically to improve the performance of the features and keep the system up to date.
   \n\n\nCopyright © 2016 by KREI Software Development</string>
@@ -186,5 +183,6 @@ Updates will be issued periodically to improve the performance of the features a
     <string name="answer7">Yes, you will lose it. But we are working on fix this issue.</string>
     <string name="question1">1. Will I always see the push notifications?</string>
     <string name="answer1">Yes. You\'ll only stop seeing them after you reset your phone, but if you start the app again they\'ll start apearing again.</string>
+    <string name="frecuent">Frequent Questions</string>
 
 </resources>

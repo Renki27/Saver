@@ -42,7 +42,7 @@ public class AboutApp extends AppCompatActivity implements AdapterView.OnItemCli
                         startActivity(info);
                         break;
                     case 1:
-                        Intent FAQ =  new Intent(AboutApp.this, FAQ.class);
+                        Intent FAQ =  new Intent(AboutApp.this, Faq.class);
                         startActivity(FAQ);
                         break;
 

@@ -8,148 +8,157 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.firecaster.saver.FAQ">
+    tools:context="com.firecaster.saver.Faq">
 
-        <ScrollView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <View style="@style/Divider" />
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <LinearLayout
+            android:layout_height="60dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"
+            android:text="@string/question1" />
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <View style="@style/Divider" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                android:textStyle="normal|bold"
-                android:text="@string/question1" />
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:text="@string/answer1" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="15sp"
-                android:gravity="center"
-                android:textStyle="normal|bold"
-                android:text="@string/answer1" />
+        <View style="@style/Divider" />
 
-            <View style="@style/Divider" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"
+            android:text="@string/question2" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                android:textStyle="normal|bold"
-                android:text="@string/question2" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:text="@string/answer2" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="15sp"
-                android:gravity="center"
-                android:textStyle="normal|bold"
-                android:text="@string/answer2" />
+        <View style="@style/Divider" />
 
-            <View style="@style/Divider" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"
+            android:text="@string/question3" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                android:textStyle="normal|bold"
-                android:text="@string/question3" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:text="@string/answer3" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="15sp"
-                android:gravity="center"
-                android:textStyle="normal|bold"
-                android:text="@string/answer3" />
+        <View style="@style/Divider" />
 
-            <View style="@style/Divider" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"
+            android:text="@string/question4" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                android:textStyle="normal|bold"
-                android:text="@string/question4" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:text="@string/answer4" />
+        <View style="@style/Divider" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"
+            android:text="@string/question5" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="15sp"
-                android:gravity="center"
-                android:textStyle="normal|bold"
-                android:text="@string/answer4" />
-            <View style="@style/Divider" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                android:textStyle="normal|bold"
-                android:text="@string/question5" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:text="@string/answer5" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="15sp"
-                android:gravity="center"
-                android:textStyle="normal|bold"
-                android:text="@string/answer5" />
+        <View style="@style/Divider" />
 
-            <View style="@style/Divider" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"
+            android:text="@string/question6" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                android:textStyle="normal|bold"
-                android:text="@string/question6" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:text="@string/answer6" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="15sp"
-                android:gravity="center"
-                android:textStyle="normal|bold"
-                android:text="@string/answer6" />
+        <View style="@style/Divider" />
 
-            <View style="@style/Divider" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
-                android:textStyle="normal|bold"
-                android:text="@string/question7" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textStyle="normal|bold"
+            android:text="@string/question7" />
 
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:textSize="15sp"
-                android:gravity="center"
-                android:textStyle="normal|bold"
-                android:text="@string/answer7" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:textStyle="normal|bold"
+            android:text="@string/answer7" />
 
-            <View style="@style/Divider" />
-        </LinearLayout>
-        </ScrollView>
+        <View style="@style/Divider" />
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
+
+<!--
+¿Las fechas de información se actualizan solas o lo debo hacer yo?
+¿Si cierro sesión se pierden mis datos?
+¿Las notificaciones siempre van a aparecer?
+
+-->
