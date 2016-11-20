@@ -71,6 +71,15 @@ public class AlarmNotification extends AppCompatActivity {
             }
         });
 
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                diferent();
+                turnOffUI();
+                finish();
+            }
+        });
+
 
         Bundle bundle = getIntent().getExtras();
         title = bundle.getString("SUBJECT");
@@ -87,6 +96,38 @@ public class AlarmNotification extends AppCompatActivity {
 
         notificationDismiss();
 
+    }
+
+    public void diferent () {
+        SharedPreferences sp = getSharedPreferences(SPENT, 0);
+        SharedPreferences spp = getSharedPreferences(SPENT, 0);
+        SharedPreferences.Editor editor = spp.edit();
+        switch (title) {
+            case "Breakfast time!":
+                int bf = sp.getInt("breakfast", 0);
+                bf = bf + Integer.parseInt(value.getText().toString());
+
+                editor.putInt("breakfast", bf);
+                editor.commit();
+                break;
+            case "Launch time!":
+                int lc = sp.getInt("launch", 0);
+                lc = lc + Integer.parseInt(value.getText().toString());
+
+                editor.putInt("launch", lc);
+                editor.commit();
+                break;
+            case "Dinner time!":
+                int din = sp.getInt("dinner", 0);
+                din = din + Integer.parseInt(value.getText().toString());
+
+                editor.putInt("dinner", din);
+                editor.commit();
+                break;
+            default:
+
+
+        }
     }
 
     public void writeInfo () {
@@ -120,8 +161,6 @@ public class AlarmNotification extends AppCompatActivity {
 
         }
     }
-
-
 
     public void turnOnUI() {
         ok.setVisibility(View.VISIBLE);
