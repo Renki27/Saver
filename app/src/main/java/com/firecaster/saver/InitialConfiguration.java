@@ -153,16 +153,26 @@ public class InitialConfiguration extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences(VALUES, 0);
         SharedPreferences.Editor editor = sp.edit();
 
-        editor.putInt("breakfast", Integer.parseInt(txt1.getText().toString()));
-        editor.putInt("launch", Integer.parseInt(txt2.getText().toString()));
-        editor.putInt("dinner", Integer.parseInt(txt3.getText().toString()));
-        editor.putInt("transportation", Integer.parseInt(txt4.getText().toString()));
-        editor.putInt("internet", Integer.parseInt(txt5.getText().toString()));
-        editor.putInt("water", Integer.parseInt(txt6.getText().toString()));
-        editor.putInt("electricity", Integer.parseInt(txt7.getText().toString()));
-        editor.putInt("renting", Integer.parseInt(txt8.getText().toString()));
+        editor.putInt("breakfast", Integer.parseInt(verifyEditTextValue(txt1)));
+        editor.putInt("launch", Integer.parseInt(verifyEditTextValue(txt2)));
+        editor.putInt("dinner", Integer.parseInt(verifyEditTextValue(txt3)));
+        editor.putInt("transportation", Integer.parseInt(verifyEditTextValue(txt4)));
+        editor.putInt("internet", Integer.parseInt(verifyEditTextValue(txt5)));
+        editor.putInt("water", Integer.parseInt(verifyEditTextValue(txt6)));
+        editor.putInt("electricity", Integer.parseInt(verifyEditTextValue(txt7)));
+        editor.putInt("renting", Integer.parseInt(verifyEditTextValue(txt8)));
 
         editor.commit();
+    }
+
+    public String verifyEditTextValue(EditText et) {
+        if (et.getText().toString().equals("")) {
+            et.setText(R.string.zero);
+            return 0 + "";
+        } else {
+            return et.getText().toString();
+        }
+
     }
 
 
@@ -256,14 +266,14 @@ public class InitialConfiguration extends AppCompatActivity {
         int cb_electricity = sp.getInt("Electricity", 0);
         int cb_renting = sp.getInt("Renting", 0);
 
-        setCheckboxStates(cb_breakfast, breakfast);
-        setCheckboxStates(cb_launch, launch);
-        setCheckboxStates(cb_dinner, dinner);
-        setCheckboxStates(cb_transportation, trans);
-        setCheckboxStates(cb_internet, inter);
-        setCheckboxStates(cb_water, water);
-        setCheckboxStates(cb_electricity, elect);
-        setCheckboxStates(cb_renting, rent);
+        setCheckboxStates(cb_breakfast, breakfast, txt1);
+        setCheckboxStates(cb_launch, launch, txt2);
+        setCheckboxStates(cb_dinner, dinner, txt3);
+        setCheckboxStates(cb_transportation, trans, txt4);
+        setCheckboxStates(cb_internet, inter, txt5);
+        setCheckboxStates(cb_water, water, txt5);
+        setCheckboxStates(cb_electricity, elect, txt6);
+        setCheckboxStates(cb_renting, rent, txt6);
     }
 
     // verifica un checkbox
@@ -276,9 +286,13 @@ public class InitialConfiguration extends AppCompatActivity {
     }
 
     //setea los checkbox
-    public void setCheckboxStates(int state, CheckBox cb) {
+    public void setCheckboxStates(int state, CheckBox cb, EditText editText) {
         if (state == 1) {
-            cb.setChecked(true);
+            if ((editText.getText().toString().equals("")) || (editText.getText().toString().equals("0"))) {
+                cb.setChecked(false);
+            } else {
+                cb.setChecked(true);
+            }
         } else {
             cb.setChecked(false);
         }
