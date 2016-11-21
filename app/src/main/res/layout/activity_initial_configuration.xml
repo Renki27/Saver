@@ -77,7 +77,6 @@
                 android:id="@+id/launch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/breakfast"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -107,7 +106,6 @@
                 android:id="@+id/diner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/launch"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -137,7 +135,6 @@
                 android:id="@+id/transportation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/diner"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -167,7 +164,6 @@
                 android:id="@+id/monthly"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/transportation"
                 android:orientation="vertical">
 
 
@@ -189,8 +185,6 @@
                 android:id="@+id/internet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/monthly"
                 android:orientation="horizontal">
 
                 <CheckBox
@@ -215,14 +209,20 @@
                     android:inputType="number"
                     android:textAlignment="center" />
 
+                <ImageButton
+                    android:id="@+id/internet_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/ic_add" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/water"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/internet"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
@@ -247,14 +247,20 @@
                     android:hint="@string/value"
                     android:inputType="number"
                     android:textAlignment="center" />
+
+                <ImageButton
+                    android:id="@+id/water_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/ic_add" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/electricity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/water"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
@@ -279,14 +285,20 @@
                     android:hint="@string/value"
                     android:inputType="number"
                     android:textAlignment="center" />
+
+                <ImageButton
+                    android:id="@+id/electricity_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/ic_add" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/renting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/electricity"
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal">
 
@@ -311,6 +323,14 @@
                     android:hint="@string/value"
                     android:inputType="number"
                     android:textAlignment="center" />
+
+                <ImageButton
+                    android:id="@+id/renting_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="0.1"
+                    android:background="@drawable/ic_add" />
             </LinearLayout>
 
             <Button
