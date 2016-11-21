@@ -255,11 +255,21 @@
                 android:value=".AppInfo" />
         </activity>
 
-        <!--notification window-->
+        <!-- notification window -->
         <activity
             android:name=".AlarmNotification"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
+        <!-- time pickers window -->
+        <activity
+            android:name=".TimePickers"
+            android:label="@string/time_picker"
+            android:parentActivityName=".InitialConfiguration"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".InitialConfiguration" />
         </activity>
     </application>
 

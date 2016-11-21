@@ -1,6 +1,8 @@
 package com.firecaster.saver;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import xyz.hanks.library.SmallBang;
+import xyz.hanks.library.SmallBangListener;
 
 public class InitialConfiguration extends AppCompatActivity {
     public static String CURRENCY_SYMBOL = "";
@@ -21,10 +27,10 @@ public class InitialConfiguration extends AppCompatActivity {
     private EditText txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8;
     private CheckBox breakfast, launch, dinner, trans, inter, water, elect, rent;
     Button saveButton;
-
+    private SmallBang mSmallBang;
     private String cs;
     private boolean notEmptyValues = false;
-
+    private ImageButton internet_timePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +41,12 @@ public class InitialConfiguration extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+
+        //libreria animaciones
+        mSmallBang = SmallBang.attach2Window(this);
+
         saveButton = (Button) findViewById(R.id.bt_save_user_values);
+        internet_timePicker = (ImageButton) findViewById(R.id.internet_picker);
 
         setVariables();
         verifyCurrencyValue();
@@ -48,6 +59,16 @@ public class InitialConfiguration extends AppCompatActivity {
 
 
         getCheckBoxStates();
+
+
+        internet_timePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent internetPicker = new Intent(InitialConfiguration.this, TimePickers.class);
+                startActivity(internetPicker);
+                internetPicker.putExtra("INTERNET", R.string.internet);
+            }
+        });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -376,6 +397,19 @@ public class InitialConfiguration extends AppCompatActivity {
             editor.putString("Currency", value);
             editor.commit();
         }
+    }
+
+    //Metodo animacion
+    public void animButton(View view) {
+        mSmallBang.bang(view, new SmallBangListener() {
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationEnd() {
+            }
+        });
     }
 
 }
