@@ -137,6 +137,8 @@ Updates will be issued periodically to improve the performance of the features a
     <string name="breakfast_time">Breakfast time!</string>
     <string name="launch_time">Launch time!</string>
     <string name="dinner_time">Dinner time!</string>
+    <string name="trans_time">Tranportation expenses!</string>
+
 
     <string name="breakfastM">Breakfast →</string>
     <string name="concept">Concept</string>

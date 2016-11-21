@@ -512,6 +512,7 @@ public class MainActivity extends AppCompatActivity
         int cb_breakfast = ch_SPreferences.getInt("Breakfast", 0);
         int cb_launch = ch_SPreferences.getInt("Launch", 0);
         int cb_dinner = ch_SPreferences.getInt("Dinner", 0);
+        int cb_trans = ch_SPreferences.getInt("Transportation", 0);
 
         String getMonday = schedule_SPreferences.getString("Monday", "No Data saved");
         String getTuesday = schedule_SPreferences.getString("Tuesday", "No Data saved");
@@ -538,6 +539,7 @@ public class MainActivity extends AppCompatActivity
         String breakfastTime = getResources().getString(R.string.breakfast_time);
         String launchTime = getResources().getString(R.string.launch_time);
         String dinnerTime = getResources().getString(R.string.dinner_time);
+        String transTimer = getResources().getString(R.string.trans_time);
 
 
         verifyMorning(cb_breakfast, 2, tempMon, 9, 50, 0, 0, notification, breakfastTime);
@@ -560,6 +562,31 @@ public class MainActivity extends AppCompatActivity
         verifyNight(cb_dinner, 5, tempThur, 17, 0, 0, 15, notification, dinnerTime);
         verifyNight(cb_dinner, 6, tempFri, 17, 0, 0, 16, notification, dinnerTime);
         verifyNight(cb_dinner, 7, tempSat, 17, 0, 0, 17, notification, dinnerTime);
+
+        verifyTrans(cb_trans, 2, tempMon, 19, 0, 0, 18, notification, transTimer);
+        verifyTrans(cb_trans, 3, tempTue, 19, 0, 0, 19, notification, transTimer);
+        verifyTrans(cb_trans, 4, tempWed, 19, 0, 0, 20, notification, transTimer);
+        verifyTrans(cb_trans, 5, tempThur, 19, 0, 0, 21, notification, transTimer);
+        verifyTrans(cb_trans, 6, tempFri, 19, 0, 0, 22, notification, transTimer);
+        verifyTrans(cb_trans, 7, tempSat, 19, 0, 0, 23, notification, transTimer);
+
+
+
+
+
+    }
+
+    public void verifyTrans(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text){
+        Calendar currentTime = Calendar.getInstance();
+        Calendar received = Calendar.getInstance();
+        loadDate(received, dayOfWeek, hour, minutes, seconds);
+
+
+        if (received.after(currentTime)) {
+            if ((checked == 1) && (day.isMorning() || day.isEvening() || day.isNight())) {
+                dailyAlarms(dayOfWeek, hour, minutes, seconds, id, title, text);
+            }
+        }
     }
 
     public void loadDate(Calendar received, int weekDay, int hour, int minutes, int seconds) {
