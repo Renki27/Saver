@@ -23,7 +23,7 @@ public class InitialConfiguration extends AppCompatActivity {
     Button saveButton;
 
     private String cs;
-    private boolean notEmptyValues;
+    private boolean notEmptyValues = false;
 
 
     @Override
@@ -52,9 +52,24 @@ public class InitialConfiguration extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveUserValues();
-                saveCheckBoxStates();
-                Toast.makeText(InitialConfiguration.this, R.string.data_saved_successfully, Toast.LENGTH_SHORT).show();
+                verifyEditTextValue(txt1, breakfast);
+                verifyEditTextValue(txt2, launch);
+                verifyEditTextValue(txt3, dinner);
+                verifyEditTextValue(txt4, trans);
+                verifyEditTextValue(txt5, inter);
+                verifyEditTextValue(txt6, water);
+                verifyEditTextValue(txt7, elect);
+                verifyEditTextValue(txt8, rent);
+
+                if (notEmptyValues) {
+                    saveUserValues();
+                    saveCheckBoxStates();
+                    Toast.makeText(InitialConfiguration.this, R.string.data_saved_successfully, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(InitialConfiguration.this, R.string.invalid_checked_value, Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 
@@ -166,13 +181,14 @@ public class InitialConfiguration extends AppCompatActivity {
         editor.commit();
     }
 
-    public void verifyEditTextValue(EditText et) {
+    public void verifyEditTextValue(EditText et, CheckBox cb) {
+        if (cb.isChecked()) {
+            if ((et.getText().toString().equals("")) || (et.getText().toString().equals("0"))) {
+                notEmptyValues = false;
+            } else {
+                notEmptyValues = true;
+            }
 
-        if ((et.getText().toString().equals("")) || (et.getText().toString().equals("0"))) {
-            Toast.makeText(this, R.string.invalid_value, Toast.LENGTH_SHORT).show();
-            notEmptyValues = false;
-        } else {
-            notEmptyValues = true;
         }
 
 

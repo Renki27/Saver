@@ -185,5 +185,6 @@ Updates will be issued periodically to improve the performance of the features a
     <string name="answer1">Yes. You\'ll only stop seeing them after you reset your phone, but if you start the app again they\'ll start apearing again.</string>
     <string name="frecuent">Frequent Questions</string>
     <string name="invalid_value">The value must be not empty and different from 0</string>
+    <string name="invalid_checked_value">The checked value must be not empty and different from 0</string>
 
 </resources>
