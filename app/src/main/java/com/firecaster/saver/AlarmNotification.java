@@ -74,7 +74,7 @@ public class AlarmNotification extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                diferent();
+                different();
                 turnOffUI();
                 finish();
             }
@@ -98,7 +98,7 @@ public class AlarmNotification extends AppCompatActivity {
 
     }
 
-    public void diferent () {
+    public void different () {
         SharedPreferences sp = getSharedPreferences(SPENT, 0);
         SharedPreferences spp = getSharedPreferences(SPENT, 0);
         SharedPreferences.Editor editor = spp.edit();
@@ -124,7 +124,7 @@ public class AlarmNotification extends AppCompatActivity {
                 editor.putInt("dinner", din);
                 editor.commit();
                 break;
-            case "Tranportation expenses!":
+            case "Transportation expenses!":
                 int trans = sp.getInt("transportation", 0);
                 trans = trans + Integer.parseInt(value.getText().toString());
 
@@ -164,7 +164,7 @@ public class AlarmNotification extends AppCompatActivity {
                 editor.commit();
                 break;
 
-            case "Tranportation expenses!":
+            case "Transportation expenses!":
                 int trans = sp.getInt("transportation", 0);
                 trans = trans + Integer.parseInt(amount.getText().toString());
 
@@ -212,7 +212,7 @@ public class AlarmNotification extends AppCompatActivity {
             case "Dinner time!":
                 amount.setText(Integer.toString(dinner));
                 break;
-            case "Tranportation expenses!":
+            case "Transportation expenses!":
                 amount.setText(Integer.toString(transportation));
                 break;
             default:
