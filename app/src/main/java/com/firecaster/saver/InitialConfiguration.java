@@ -23,6 +23,7 @@ public class InitialConfiguration extends AppCompatActivity {
     Button saveButton;
 
     private String cs;
+    private boolean notEmptyValues;
 
 
     @Override
@@ -153,25 +154,27 @@ public class InitialConfiguration extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences(VALUES, 0);
         SharedPreferences.Editor editor = sp.edit();
 
-        editor.putInt("breakfast", Integer.parseInt(verifyEditTextValue(txt1)));
-        editor.putInt("launch", Integer.parseInt(verifyEditTextValue(txt2)));
-        editor.putInt("dinner", Integer.parseInt(verifyEditTextValue(txt3)));
-        editor.putInt("transportation", Integer.parseInt(verifyEditTextValue(txt4)));
-        editor.putInt("internet", Integer.parseInt(verifyEditTextValue(txt5)));
-        editor.putInt("water", Integer.parseInt(verifyEditTextValue(txt6)));
-        editor.putInt("electricity", Integer.parseInt(verifyEditTextValue(txt7)));
-        editor.putInt("renting", Integer.parseInt(verifyEditTextValue(txt8)));
+        editor.putInt("breakfast", Integer.parseInt(txt1.getText().toString()));
+        editor.putInt("launch", Integer.parseInt(txt2.getText().toString()));
+        editor.putInt("dinner", Integer.parseInt(txt3.getText().toString()));
+        editor.putInt("transportation", Integer.parseInt(txt4.getText().toString()));
+        editor.putInt("internet", Integer.parseInt(txt5.getText().toString()));
+        editor.putInt("water", Integer.parseInt(txt6.getText().toString()));
+        editor.putInt("electricity", Integer.parseInt(txt7.getText().toString()));
+        editor.putInt("renting", Integer.parseInt(txt8.getText().toString()));
 
         editor.commit();
     }
 
-    public String verifyEditTextValue(EditText et) {
-        if (et.getText().toString().equals("")) {
-            et.setText(R.string.zero);
-            return 0 + "";
+    public void verifyEditTextValue(EditText et) {
+
+        if ((et.getText().toString().equals("")) || (et.getText().toString().equals("0"))) {
+            Toast.makeText(this, R.string.invalid_value, Toast.LENGTH_SHORT).show();
+            notEmptyValues = false;
         } else {
-            return et.getText().toString();
+            notEmptyValues = true;
         }
+
 
     }
 

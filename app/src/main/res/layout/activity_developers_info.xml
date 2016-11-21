@@ -11,7 +11,6 @@
     tools:context="com.firecaster.saver.DevelopersInfo">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,54 +29,64 @@
             android:id="@+id/tv_developers"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.1"
             android:gravity="center"
+            android:text="@string/developer"
             android:textColor="@color/colorAccent"
-            android:textStyle="normal|bold"
-            android:text="@string/developer" />
+            android:textSize="20sp"
+            android:textStyle="normal|bold" />
 
         <View style="@style/Divider" />
 
-        <TextView
-            android:id="@+id/tv_richard"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/richard" />
-
-        <TextView
-            android:id="@+id/tv_emilio"
-            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/emilio" />
+            android:background="@drawable/rounded_layout"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/tv_isaac"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/isaac" />
+            <TextView
+                android:id="@+id/tv_richard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/richard"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/tv_kevin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/kevin" />
+            <TextView
+                android:id="@+id/tv_emilio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/emilio"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_isaac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/isaac"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_kevin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/kevin"
+                android:textSize="20sp" />
 
 
-
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -575,15 +575,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void verifyMorning(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
-        String TAG = "PRUEBA: ";
+
         Calendar currentTime = Calendar.getInstance();
-
-
         Calendar received = Calendar.getInstance();
-
         loadDate(received, dayOfWeek, hour, minutes, seconds);
 
-        Log.d(TAG, received.getTime().toString());
 
         if (received.after(currentTime)) {
             if ((checked == 1) && day.isMorning()) {

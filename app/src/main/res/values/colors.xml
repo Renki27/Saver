@@ -15,6 +15,7 @@
     <color name="orange">#ffa500</color>
     <color name="yellow">#e6de08</color>
     <color name="gray">#cccccc</color>
+    <color name="light_gray">#f5f5f5</color>
     <color name="cyan">#00ffff</color>
     <color name="color_g_button">#ff4221</color>
     <color name="white">#ffffff</color>

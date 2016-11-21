@@ -8,14 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Extras extends AppCompatActivity {
 
-    private Button save;
+    private Button add;
     private EditText amount;
 
     private static final String SPENT = "UserSpent";
-    private int extras =0;
+    private int extras = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,29 +25,47 @@ public class Extras extends AppCompatActivity {
 
         amount = (EditText) findViewById(R.id.amount);
 
-        save = (Button) findViewById(R.id.save);
+        add = (Button) findViewById(R.id.add_extras);
 
         //Instancias que se encargan de agragar el action bar y el boton de regreso a las ventanas
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+
+
+
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addValue();
+            }
+        });
+
     }
 
-    public void saveButton(View view) {
+    public void addValue() {
+
+
+        if ((amount.getText().toString().equals("")) || (amount.getText().toString().equals("0"))) {
+            Toast.makeText(this, R.string.invalid_value, Toast.LENGTH_SHORT).show();
+        } else {
+            getExtras();
+            SharedPreferences es = getSharedPreferences(SPENT, 0);
+            SharedPreferences.Editor editor = es.edit();
+            extras += Integer.parseInt(amount.getText().toString());
+            Toast.makeText(this, R.string.data_saved_successfully, Toast.LENGTH_SHORT).show();
+            amount.setText("");
+            editor.putInt("extras", extras);
+            editor.commit();
+        }
+
+
+    }
+
+    public void getExtras() {
         SharedPreferences sp = getSharedPreferences(SPENT, 0);
         extras = sp.getInt("extras", 0);
-
-
-        SharedPreferences es = getSharedPreferences(SPENT, 0);
-        SharedPreferences.Editor editor = es.edit();
-
-        extras = extras + Integer.parseInt(amount.getText().toString());
-
-        editor.putInt("extras", extras);
-        editor.commit();
-
-        Intent redirect = new Intent (getApplicationContext(), MainActivity.class);
-        startActivity(redirect);
 
     }
 }
