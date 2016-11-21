@@ -124,6 +124,13 @@ public class AlarmNotification extends AppCompatActivity {
                 editor.putInt("dinner", din);
                 editor.commit();
                 break;
+            case "Tranportation expenses!":
+                int trans = sp.getInt("transportation", 0);
+                trans = trans + Integer.parseInt(value.getText().toString());
+
+                editor.putInt("transportation", trans);
+                editor.commit();
+                break;
             default:
 
 
@@ -154,6 +161,14 @@ public class AlarmNotification extends AppCompatActivity {
                 din = din + Integer.parseInt(amount.getText().toString());
 
                 editor.putInt("dinner", din);
+                editor.commit();
+                break;
+
+            case "Tranportation expenses!":
+                int trans = sp.getInt("transportation", 0);
+                trans = trans + Integer.parseInt(amount.getText().toString());
+
+                editor.putInt("transportation", trans);
                 editor.commit();
                 break;
             default:
@@ -196,6 +211,9 @@ public class AlarmNotification extends AppCompatActivity {
                 break;
             case "Dinner time!":
                 amount.setText(Integer.toString(dinner));
+                break;
+            case "Tranportation expenses!":
+                amount.setText(Integer.toString(transportation));
                 break;
             default:
 

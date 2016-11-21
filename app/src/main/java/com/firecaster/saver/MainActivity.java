@@ -574,6 +574,7 @@ public class MainActivity extends AppCompatActivity
         verifyTrans(cb_trans, 7, tempSat, 19, 0, 0, 23, notification, transTimer);
 
 
+        dailyAlarms(8, 18, 50, 0, 55, notification, transTimer);
 
 
 
