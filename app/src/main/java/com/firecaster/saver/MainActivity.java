@@ -563,6 +563,9 @@ public class MainActivity extends AppCompatActivity
         verifyNight(cb_dinner, 6, tempFri, 17, 0, 0, 16, notification, dinnerTime);
         verifyNight(cb_dinner, 7, tempSat, 17, 0, 0, 17, notification, dinnerTime);
 
+
+        verifyTrans(cb_trans, 1, tempMon, 18, 52, 0, 108, notification, transTimer);
+
         verifyTrans(cb_trans, 2, tempMon, 19, 0, 0, 18, notification, transTimer);
         verifyTrans(cb_trans, 3, tempTue, 19, 0, 0, 19, notification, transTimer);
         verifyTrans(cb_trans, 4, tempWed, 19, 0, 0, 20, notification, transTimer);
