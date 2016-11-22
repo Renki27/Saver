@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.CalendarMode;
 import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Array;
@@ -56,7 +57,6 @@ public class MainActivity extends AppCompatActivity
     private static final String SPENT_FILE = "UserSpent";
     private static final String VALUED_FILE = "UserValued";
     public static final String VALUES = "values";
-
 
     private ClassDays monday;
     private ClassDays tuesday;
@@ -330,6 +330,28 @@ public class MainActivity extends AppCompatActivity
         real_val10 = (TextView) findViewById(R.id.real_val_10);
 
     }
+    
+    //Reinicia valores de lo gastado cada 1ero de cada mes
+    public void restartData(){
+        Calendar c = Calendar.getInstance();
+        Calendar cc = Calendar.getInstance();
+        cc.add(Calendar.DAY_OF_MONTH, 1);
+        if(c.get(Calendar.DAY_OF_MONTH) == cc.get(Calendar.DAY_OF_MONTH)){
+            SharedPreferences es = getSharedPreferences(SPENT_FILE, 0);
+            SharedPreferences.Editor editor = es.edit();
+            editor.putInt("extras", 0);
+            editor.putInt("breakfast",0);
+            editor.putInt("launch", 0);
+            editor.putInt("dinner",0);
+            editor.putInt("transportation", 0);
+            editor.putInt("internet",0);
+            editor.putInt("electricity", 0);
+            editor.putInt("renting",0);
+
+            editor.commit();
+
+        }
+    }
 
     public void getData() {
         SharedPreferences sharedPreferences = getSharedPreferences(USER_DATA_FILE, 0);
@@ -502,6 +524,7 @@ public class MainActivity extends AppCompatActivity
             if (breakfast == 0) {
                 valuedValues();
             }
+            restartData();
             getWeekNotifications();
         }
     }
