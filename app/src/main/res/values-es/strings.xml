@@ -1,0 +1,194 @@
+<resources>
+    <string name="app_name">Asistente Universitario</string>
+    <string name="navigation_drawer_open">Abrir barra de navegación</string>
+    <string name="navigation_drawer_close">Cerrar barra de navegación</string>
+    <string name="action_settings">Opciones</string>
+    <string name="back_Button">Atrás</string>
+    <string name="reset_Schedule">Limpiar</string>
+    <string name="close_app">Salir</string>
+    <string name="schedule">Horario</string>
+    <string name="about">Información</string>
+    <string name="about_and_help">Información y Ayuda</string>
+    <string name="share">Compartir</string>
+    <string name="title_activity_tutorial">Tutorial</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="step1">Paso 1</string>
+    <string name="step2">Paso 2</string>
+    <string name="step3">Paso 3</string>
+    <string name="press_once_again_to_exit">Presiona de nuevo para salir</string>
+    <string name="faq">FAQ</string>
+    <string name="swipe_toast">Arrastre a la izquierda para ver los pasos</string>
+    <string name="external_links">Links Externos</string>
+    <string name="scolarship">Oficina de ayuda socioeconómica</string>
+    <string name="ematricula">E-matricula</string>
+    <string name="financial_admin_office">Financial Administration Office</string>
+    <string name="registry_office">Registry and Information Office</string>
+    <string name="changelog">Changelog</string>
+    <string name="extras">Extras</string>
+    <string name="calendar">Calendar</string>
+    <string name="title_activity_calendar">Calendar</string>
+    <string name="colors_representation">Colors</string>
+    <string name="notifications">Notifications</string>
+    <string name="calendar_current_day">Current day</string>
+    <string name="calendar_selected_day">Selected day</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in_text">Sign in</string>
+    <string name="loading">Loading...</string>
+    <string name="signed_out">Signed out</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="btn_sign_out_from_google">Sign out from Google</string>
+    <string name="btn_revoke_access">Revoke Access</string>
+    <string name="accounts">Accounts</string>
+    <string name="successful_login">You are logged in!</string>
+    <string name="disconnect_account">Disconnect account</string>
+    <string name="login_failed">Login failed!</string>
+    <string name="google_photo_alert">Please set a profile picture in your google account!</string>
+    <string name="sign_out_title">Sign out</string>
+    <string name="sign_out_confirmation">Would you like to Sign out?</string>
+    <string name="yes_button">Yes</string>
+    <string name="no_button">No</string>
+    <string name="app_version">version 1.0.0</string>
+    <string name="welcome">Welcome!</string>
+    <string name="send_email">Send email</string>
+    <string name="feedback">Feedback</string>
+    <string name="no_email_app">Oops!, no email app instaled.</string>
+    <string name="crash_toast_text">Ooooops ! I crashed, but a report has been sent to my developer to help fix the issue !</string>
+    <string name="contact">Contact</string>
+    <string name="report_bug">Report a problem</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="other">Others</string>
+    <string name="feedback_options">Feedback options</string>
+    <string name="feature_request">Feature request</string>
+    <string name="changelog_list">
+    </string>
+    <string name="licenses">LICENSES</string>
+    <string name="licenses_text">By means of this KREI Software Development prohibits the copy of the characteristics of this software and of any source code that contains.
+The permits extend to the free use of the application and the disclosure of its use.
+Updates will be issued periodically to improve the performance of the features and keep the system up to date.</string>
+    <string name="initial_config">Initial Configuration</string>
+    <string name="data_saved_successfully">Data saved successfully!</string>
+    <string name="error_source_not_found">Source not found!</string>
+    <string name="hour">HOUR</string>
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">H</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
+    <string name="morning">Morning 7-11</string>
+    <string name="evening">Evening 12-17</string>
+    <string name="night">Night 18-21</string>
+    <string name="save">Save</string>
+    <string name="schedule_saved">Schedule was saved!</string>
+    <string name="dinner">Dinner</string>
+    <string name="value">value</string>
+    <string name="launch">Launch</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="daily">Daily</string>
+    <string name="transportation">Transportation</string>
+    <string name="currency">Currency</string>
+    <string name="dollars">$ - Dollars</string>
+    <string name="dollars_symbol">$</string>
+    <string name="colones">₡ - Colones</string>
+    <string name="colones_symbol">₡</string>
+    <string name="Google">Google</string>
+    <string name="sign_out_accounts">Sign Out Accounts</string>
+    <string name="cancel">Cancel</string>
+    <string name="select">Select</string>
+    <string name="select_currency">Select your currency</string>
+    <string name="disconnect_title">Disconnect</string>
+    <string name="disconnect_confirmation">Your account will be disconnected and the user data deleted, do you want to proceed?</string>
+    <string name="economic_benefit">Economic benefit delivery</string>
+    <string name="feeding_benefit">Feeding benefit Delivery</string>
+    <string name="no_event">No Event</string>
+    <string name="schedule_guide">Schedule guide publication</string>
+    <string name="preregistration">Web pre-registration</string>
+    <string name="ordinary_registration_dates">Ordinary Registration Dates</string>
+    <string name="ordinary_registration">Web Ordinary Registration</string>
+    <string name="inclusion_quotas">Publication of inclusion quotas </string>
+    <string name="inclusion_pre_registration">Inclusion Pre-Registration</string>
+    <string name="inclusion_registration_dates">Inclusion Registration Dates</string>
+    <string name="inclusion_registration">Inclusion Registration</string>
+    <string name="hunger_games_start">Beginning of Lessons</string>
+    <string name="monthly">Monthly</string>
+    <string name="internet">Internet Service</string>
+    <string name="water">Water Service</string>
+    <string name="electricity">Electricity Service</string>
+    <string name="renting">Renting Service</string>
+    <string name="zero">0</string>
+    <string name="data_deleted">Application data deleted</string>
+
+    <string name="breakfast_time">Breakfast time!</string>
+    <string name="launch_time">Launch time!</string>
+    <string name="dinner_time">Dinner time!</string>
+    <string name="trans_time">Transportation expenses!</string>
+
+
+    <string name="breakfastM">Breakfast →</string>
+    <string name="concept">Concept</string>
+    <string name="valued">Valued</string>
+    <string name="spent">Spent</string>
+    <string name="total">Total</string>
+    <string name="extraExpenses">Extra expenses</string>
+    <string name="Amount">Amount:</string>
+    <string name="summary">SUMMARY</string>
+    <string name="sound">Sound</string>
+    <string name="main_screen_sound">Main screen sound</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="others">Others</string>
+    <string name="members">MEMBERS</string>
+    <string name="Developers">Developers</string>
+    <string name="developer">Developers</string>
+    <string name="richard">Richard Sancho Chávez</string>
+    <string name="emilio">Emilio José Rojas Herrera</string>
+    <string name="isaac">Isaac Rojas Sánchez</string>
+    <string name="kevin">Kevin Salazar Araya</string>
+    <string name="add">Add</string>
+    <string name="enter">Enter</string>
+    <string name="used_value_question">Did you use the exactly amount of</string>
+    <string name="Question_symbol">\?.</string>
+    <string name="how_much_money">How much money have you used?</string>
+    <string name="ok">OK!</string>
+    <string name="network_error">Failed to sign in!, Please check your network connection and try again.</string>
+
+    <string name="licenses_text1">This software is the property of \"KREI Software Development\" created under academic objectives of the University of Costa Rica Sede Occidente for the course \"Computer Applied to Business (IF-6201)\" of the Business Informatics course. \n\nThis software is not allowed to be reproduced, copied or sold under any circumstances, in case any of these activities are detected, the corresponding legal measures of the case will have to be applied.\n\nThe permits extend to the free use of the application and the disclosure of its use.
+Updates will be issued periodically to improve the performance of the features and keep the system up to date.
+  \n\n\nCopyright © 2016 by KREI Software Development</string>
+    <string name="question2">2. Which are the first steps for my application to start working?</string>
+    <string name="answer2">Enter your weekly university hours and then configure which values ​​you want to contemplate in the budget.</string>
+    <string name="question3">3. Can I check important dates in the university calendar to avoid looking at pages of the institution?</string>
+    <string name="answer3">Of course you can enter in the calendar tab and observe the events attached and color coded according to your objective.</string>
+    <string name="question4">4. Is it possible to visit the official university websites from the application?</string>
+    <string name="answer4">In the section of external links you can enter the site of matrícula, payment office, scholarships, etc.</string>
+    <string name="question5">5. What happens if I make an extra expense and I want to enter it at the application?</string>
+    <string name="answer5">You can report the amounts of your extra expenses in the application by entering the extras tab and entering the amount.</string>
+    <string name="question6">6. The informational dates updates by themself or shoud I do it myself?</string>
+    <string name="answer6">They update automatically.</string>
+    <string name="question7">7. If my session is closed I lose the data?</string>
+    <string name="answer7">Yes, you will lose it. But we are working on fix this issue.</string>
+    <string name="question1">1. Will I always see the push notifications?</string>
+    <string name="answer1">Yes. You\'ll only stop seeing them after you reset your phone, but if you start the app again they\'ll start apearing again.</string>
+    <string name="frecuent">Frequent Questions</string>
+    <string name="invalid_value">The value must be not empty and different from 0</string>
+    <string name="invalid_checked_value">The checked value must be not empty and different from 0</string>
+    <string name="date_picker">Date picker</string>
+    <string name="time_picker">Time picker</string>
+
+</resources>
