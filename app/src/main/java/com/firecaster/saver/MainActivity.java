@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity
     String p;
 
     public static final String USER_DATA_FILE = "UserGoogleDataFile";
+    public static final String MONTLY_DATES = "montly_dates";
     public static final String CHECKBOX_STATES = "checkboxStates";
     public static final String SCHEDULE_DATA_FILE = "UserScheduleFile";
     private static final String SPENT_FILE = "UserSpent";
@@ -330,7 +331,7 @@ public class MainActivity extends AppCompatActivity
         real_val10 = (TextView) findViewById(R.id.real_val_10);
 
     }
-    
+
     //Reinicia valores de lo gastado cada 1ero de cada mes
     public void restartData(){
         Calendar c = Calendar.getInstance();
@@ -347,6 +348,8 @@ public class MainActivity extends AppCompatActivity
             editor.putInt("internet",0);
             editor.putInt("electricity", 0);
             editor.putInt("renting",0);
+            editor.putInt("water",0);
+
 
             editor.commit();
 
@@ -532,10 +535,19 @@ public class MainActivity extends AppCompatActivity
     public void getWeekNotifications() {
         SharedPreferences ch_SPreferences = getSharedPreferences(CHECKBOX_STATES, 0);
         SharedPreferences schedule_SPreferences = getSharedPreferences(SCHEDULE_DATA_FILE, 0);
+        SharedPreferences dates = getSharedPreferences(MONTLY_DATES, 0);
+
         int cb_breakfast = ch_SPreferences.getInt("Breakfast", 0);
         int cb_launch = ch_SPreferences.getInt("Launch", 0);
         int cb_dinner = ch_SPreferences.getInt("Dinner", 0);
         int cb_trans = ch_SPreferences.getInt("Transportation", 0);
+        int cb_internet = ch_SPreferences.getInt("Internet", 0);
+        int cb_rentin = ch_SPreferences.getInt("Renting", 0);
+        int cb_electricity = ch_SPreferences.getInt("Electricity", 0);
+        int cb_water =  ch_SPreferences.getInt("Water", 0);
+
+
+
 
         String getMonday = schedule_SPreferences.getString("Monday", "No Data saved");
         String getTuesday = schedule_SPreferences.getString("Tuesday", "No Data saved");
@@ -563,7 +575,15 @@ public class MainActivity extends AppCompatActivity
         String launchTime = getResources().getString(R.string.launch_time);
         String dinnerTime = getResources().getString(R.string.dinner_time);
         String transTimer = getResources().getString(R.string.trans_time);
+        String interTimer = getResources().getString(R.string.inter_time);
+        String waterTimer = getResources().getString(R.string.water_time);
+        String electTimer = getResources().getString(R.string.elect_time);
+        String rentinTimer = getResources().getString(R.string.rentin_time);
 
+        int internet = dates.getInt("internet", 1);
+        int water = dates.getInt("water", 1);
+        int elect = dates.getInt("electricity", 1);
+        int renting = dates.getInt("rentin", 1);
 
         verifyMorning(cb_breakfast, 2, tempMon, 9, 50, 0, 0, notification, breakfastTime);
         verifyMorning(cb_breakfast, 3, tempTue, 9, 50, 0, 1, notification, breakfastTime);
@@ -586,8 +606,6 @@ public class MainActivity extends AppCompatActivity
         verifyNight(cb_dinner, 6, tempFri, 17, 0, 0, 16, notification, dinnerTime);
         verifyNight(cb_dinner, 7, tempSat, 17, 0, 0, 17, notification, dinnerTime);
 
-
-
         verifyTrans(cb_trans, 2, tempMon, 19, 0, 0, 18, notification, transTimer);
         verifyTrans(cb_trans, 3, tempTue, 19, 0, 0, 19, notification, transTimer);
         verifyTrans(cb_trans, 4, tempWed, 19, 0, 0, 20, notification, transTimer);
@@ -595,9 +613,40 @@ public class MainActivity extends AppCompatActivity
         verifyTrans(cb_trans, 6, tempFri, 19, 0, 0, 22, notification, transTimer);
         verifyTrans(cb_trans, 7, tempSat, 19, 0, 0, 23, notification, transTimer);
 
+        verifyMonthly(cb_internet, internet , 24, notification, interTimer );
+        verifyMonthly(cb_water, water , 25, notification, waterTimer );
+        verifyMonthly(cb_electricity, elect , 26, notification, electTimer );
+        verifyMonthly(cb_rentin, renting , 27, notification, rentinTimer );
+
+    }
+
+    public void verifyMonthly(int checked, int dayOfMonth,int id, String title, String text){
+        Calendar currentTime = Calendar.getInstance();
+        Calendar received = Calendar.getInstance();
+        received.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+        if (received.after(currentTime)) {
+            if ((checked == 1)) {
+                Calendar calendar = Calendar.getInstance();
+                String enter = getResources().getString(R.string.enter);
+
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                calendar.set(Calendar.HOUR_OF_DAY, 8);
+                calendar.set(Calendar.MINUTE, 00);
+                calendar.set(Calendar.SECOND, 00);
+
+                Intent intent = new Intent(this, NotificationReceiver.class);
+                intent.putExtra("ID", id);
+                intent.putExtra("TITLE", title);
+                intent.putExtra("TEXT", text);
+                intent.putExtra("ACTION", enter);
 
 
-
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(this, id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+            }
+        }
     }
 
     public void verifyTrans(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text){

@@ -190,5 +190,9 @@ Se publicarán actualizaciones periódicamente para mejorar el rendimiento de la
     <string name="invalid_checked_value">El campo marcado no debe estar vacío o ser cero</string>
     <string name="date_picker">Selector de fecha</string>
     <string name="time_picker">Selector de hora</string>
+    <string name="inter_time">Internet service payment</string>
+    <string name="water_time">Water service payment</string>
+    <string name="elect_time">Electricity service payment</string>
+    <string name="rentin_time">Renting Service Payment</string>
 
 </resources>

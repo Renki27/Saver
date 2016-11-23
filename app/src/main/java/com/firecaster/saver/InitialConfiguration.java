@@ -22,6 +22,7 @@ public class InitialConfiguration extends AppCompatActivity {
     public static String CURRENCY_SYMBOL = "";
     public static final String CURRENCY_SELECTION = "currencySelection";
     public static final String CHECKBOX_STATES = "checkboxStates";
+    public static final String MONTLY_DATES = "montly_dates";
     public static final String VALUES = "values";
     private TextView c1, c2, c3, c4, c5, c6, c7, c8;
     private EditText txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8;
@@ -30,7 +31,7 @@ public class InitialConfiguration extends AppCompatActivity {
     private SmallBang mSmallBang;
     private String cs;
     private boolean notEmptyValues = false;
-    private ImageButton internet_timePicker;
+    private ImageButton internet_timePicker, water_timePicker, electricity_picker, renting_picker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,9 @@ public class InitialConfiguration extends AppCompatActivity {
 
         saveButton = (Button) findViewById(R.id.bt_save_user_values);
         internet_timePicker = (ImageButton) findViewById(R.id.internet_picker);
+        water_timePicker = (ImageButton) findViewById(R.id.water_picker);
+        electricity_picker = (ImageButton) findViewById(R.id.electricity_picker);
+        renting_picker = (ImageButton) findViewById(R.id.renting_picker);
 
         setVariables();
         verifyCurrencyValue();
@@ -64,11 +68,43 @@ public class InitialConfiguration extends AppCompatActivity {
         internet_timePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent internetPicker = new Intent(InitialConfiguration.this, TimePickers.class);
-                startActivity(internetPicker);
-                internetPicker.putExtra("INTERNET", R.string.internet);
+                DialogFragment newFragment = new DatePickerFragment();
+                newFragment.show(getSupportFragmentManager(), "internet");
             }
         });
+
+        water_timePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new DPWater();
+
+                newFragment.show(getSupportFragmentManager(), "water");
+
+            }
+        });
+
+        renting_picker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new DPRentin();
+
+                newFragment.show(getSupportFragmentManager(), "renting");
+
+            }
+        });
+
+        electricity_picker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new DPElectricity();
+
+                newFragment.show(getSupportFragmentManager(), "electricity");
+
+            }
+        });
+
+
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +126,7 @@ public class InitialConfiguration extends AppCompatActivity {
                     Toast.makeText(InitialConfiguration.this, R.string.invalid_checked_value, Toast.LENGTH_SHORT).show();
                 }
 
+                saveDates();
 
             }
         });
@@ -292,6 +329,22 @@ public class InitialConfiguration extends AppCompatActivity {
         editor.putInt("Water", verifyCheckBox(water));
         editor.putInt("Electricity", verifyCheckBox(elect));
         editor.putInt("Renting", verifyCheckBox(rent));
+        editor.commit();
+    }
+
+
+    public void saveDates (){
+        SharedPreferences sp = getSharedPreferences(MONTLY_DATES, 0);
+        SharedPreferences.Editor editor = sp.edit();
+        int inter = ((MyApplication)this.getApplicationContext()).getInter();
+        int water = ((MyApplication)this.getApplicationContext()).getWater();
+        int rentin = ((MyApplication)this.getApplicationContext()).getRentin();
+        int electricity = ((MyApplication)this.getApplicationContext()).getElecticity();
+        editor.putInt("internet", inter);
+        editor.putInt("water", water);
+        editor.putInt("rentin", rentin);
+        editor.putInt("electricity", electricity);
+
         editor.commit();
     }
 

@@ -2,19 +2,18 @@ package com.firecaster.saver;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.SharedPreferences;
-import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
 
 import java.util.Calendar;
 
-import static com.firecaster.saver.InitialConfiguration.MONTLY_DATES;
+/**
+ * Created by isaac on 22/11/2016.
+ */
 
-public class DatePickerFragment extends DialogFragment
+public class DPWater extends DialogFragment
         implements DatePickerDialog.OnDateSetListener {
-
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -25,7 +24,7 @@ public class DatePickerFragment extends DialogFragment
         int day = c.get(Calendar.DAY_OF_MONTH);
 
 
-        
+
 
         // Create a new instance of DatePickerDialog and return it
         return new DatePickerDialog(getActivity(), this, year, month, day);
@@ -37,12 +36,7 @@ public class DatePickerFragment extends DialogFragment
         Calendar fecha = Calendar.getInstance();
 
         fecha.set(year, month, day, 8, 0, 00 );
-
-        ((MyApplication) this.getContext()).setInter(day);
-
+        ((MyApplication) this.getContext()).setWater(day);
 
     }
-
-
-
 }
