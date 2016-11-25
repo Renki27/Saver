@@ -13,6 +13,7 @@ import java.util.Calendar;
 public class TimePickers extends AppCompatActivity {
 
     Button datePicker, timePicker;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +29,16 @@ public class TimePickers extends AppCompatActivity {
         datePicker = (Button) findViewById(R.id.bt_date_picker);
         timePicker = (Button) findViewById(R.id.bt_time_picker);
 
+        Bundle bundle = getIntent().getExtras();
+        id = bundle.getString("ID");
+
 
         datePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment newFragment = new DatePickerFragment();
                 newFragment.show(getSupportFragmentManager(), "datePicker");
+
             }
         });
 

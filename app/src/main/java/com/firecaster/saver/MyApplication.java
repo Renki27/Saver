@@ -10,16 +10,13 @@ public class MyApplication extends Application {
 
     private static MyApplication instance;
 
-    public int inter, rentin, electicity, water ;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
-                inter = 1;
-                rentin = 1;
-                electicity = 1;
-                water = 1;
+
     }
 
     public static MyApplication getInstance() {
@@ -55,35 +52,6 @@ public class MyApplication extends Application {
         return dir.delete();
     }
 
-    public void setElecticity(int electicity) {
-        this.electicity = electicity;
-    }
 
-    public void setRentin(int rentin) {
-        this.rentin = rentin;
-    }
 
-    public void setWater(int water) {
-        this.water = water;
-    }
-
-    public void setInter(int inter) {
-        this.inter = inter;
-    }
-
-    public int getElecticity() {
-        return electicity;
-    }
-
-    public int getRentin() {
-        return rentin;
-    }
-
-    public int getInter() {
-        return inter;
-    }
-
-    public int getWater() {
-        return water;
-    }
 }

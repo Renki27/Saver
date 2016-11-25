@@ -37,7 +37,7 @@ public class DPRentin extends DialogFragment
 
         fecha.set(year, month, day, 8, 0, 00 );
 
-        ((MyApplication) this.getContext()).setRentin(day);
+        MainActivity.rentingDP =  day;
 
     }
 

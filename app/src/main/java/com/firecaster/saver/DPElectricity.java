@@ -37,7 +37,7 @@ public class DPElectricity extends DialogFragment
 
         fecha.set(year, month, day, 8, 0, 00 );
 
-        ((MyApplication) this.getContext()).setElecticity(day);
+        MainActivity.electricityDP =  day;
 
 
     }

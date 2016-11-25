@@ -208,7 +208,7 @@ public class AlarmNotification extends AppCompatActivity {
 
             case "Internet service payment!":
                 int inter = sp.getInt("internet", 0);
-                inter = inter + Integer.parseInt(value.getText().toString());
+                inter = inter + Integer.parseInt(amount.getText().toString());
 
                 editor.putInt("internet", inter);
                 editor.commit();
@@ -216,7 +216,7 @@ public class AlarmNotification extends AppCompatActivity {
 
             case "Water service payment!":
                 int water = sp.getInt("water", 0);
-                water = water + Integer.parseInt(value.getText().toString());
+                water = water + Integer.parseInt(amount.getText().toString());
 
                 editor.putInt("water", water);
                 editor.commit();
@@ -224,7 +224,7 @@ public class AlarmNotification extends AppCompatActivity {
 
             case "Electricity service payment!":
                 int elect = sp.getInt("electricity", 0);
-                elect = elect + Integer.parseInt(value.getText().toString());
+                elect = elect + Integer.parseInt(amount.getText().toString());
 
                 editor.putInt("electricity", elect);
                 editor.commit();
@@ -232,7 +232,7 @@ public class AlarmNotification extends AppCompatActivity {
 
             case "Renting Service Payment!":
                 int rent = sp.getInt("renting", 0);
-                rent = rent + Integer.parseInt(value.getText().toString());
+                rent = rent + Integer.parseInt(amount.getText().toString());
 
                 editor.putInt("renting", rent);
                 editor.commit();

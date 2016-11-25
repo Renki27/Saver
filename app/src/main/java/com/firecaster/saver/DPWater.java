@@ -36,7 +36,7 @@ public class DPWater extends DialogFragment
         Calendar fecha = Calendar.getInstance();
 
         fecha.set(year, month, day, 8, 0, 00 );
-        ((MyApplication) this.getContext()).setWater(day);
+        MainActivity.waterDP =  day;
 
     }
 }

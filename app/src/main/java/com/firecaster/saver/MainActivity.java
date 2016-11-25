@@ -2,6 +2,7 @@ package com.firecaster.saver;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -20,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +37,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import xyz.hanks.library.SmallBang;
+import xyz.hanks.library.SmallBangListener;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -46,6 +52,13 @@ public class MainActivity extends AppCompatActivity
     private ImageView userPictureURL;
     private TextView Prev_val_1, Prev_val_2, Prev_val_3, Prev_val_4, Prev_val_5, Prev_val_6, Prev_val_7, Prev_val_8, Prev_val_9, Prev_val_10;
     private TextView real_val1, real_val2, real_val3, real_val4, real_val5, real_val6, real_val7, real_val8, real_val9, real_val10;
+    private ProgressDialog mProgressDialog;
+    private SmallBang mSmallBang;
+
+    public static int internetDP = -1;
+    public static int rentingDP = -1;
+    public static int electricityDP = -1;
+    public static int waterDP = -1;
 
     String n;
     String e;
@@ -66,6 +79,8 @@ public class MainActivity extends AppCompatActivity
     private ClassDays friday;
     private ClassDays saturday;
 
+    private ImageButton refresh;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +95,16 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+
+        refresh = (ImageButton) findViewById(R.id.bt_refresh);
+
         //Para poder accesar a los datos del navigation view, si no no sirve**
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
+
+        //libreria animaciones
+        mSmallBang = SmallBang.attach2Window(this);
 
         //para settear el nombre  correo de usuario google
         userName = (TextView) header.findViewById(R.id.userGoogleName);
@@ -99,6 +120,26 @@ public class MainActivity extends AppCompatActivity
         defTextView();
 
         addSpent();
+
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animButton(v);
+                showProgressDialog();
+
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        mProgressDialog.hide();
+                    }
+                }, 1000);
+
+                recreate();
+            }
+        });
+
     }
 
     //setea valores previstos para los gastos
@@ -333,22 +374,22 @@ public class MainActivity extends AppCompatActivity
     }
 
     //Reinicia valores de lo gastado cada 1ero de cada mes
-    public void restartData(){
+    public void restartData() {
         Calendar c = Calendar.getInstance();
         Calendar cc = Calendar.getInstance();
         cc.add(Calendar.DAY_OF_MONTH, 1);
-        if(c.get(Calendar.DAY_OF_MONTH) == cc.get(Calendar.DAY_OF_MONTH)){
+        if (c.get(Calendar.DAY_OF_MONTH) == cc.get(Calendar.DAY_OF_MONTH)) {
             SharedPreferences es = getSharedPreferences(SPENT_FILE, 0);
             SharedPreferences.Editor editor = es.edit();
             editor.putInt("extras", 0);
-            editor.putInt("breakfast",0);
+            editor.putInt("breakfast", 0);
             editor.putInt("launch", 0);
-            editor.putInt("dinner",0);
+            editor.putInt("dinner", 0);
             editor.putInt("transportation", 0);
-            editor.putInt("internet",0);
+            editor.putInt("internet", 0);
             editor.putInt("electricity", 0);
-            editor.putInt("renting",0);
-            editor.putInt("water",0);
+            editor.putInt("renting", 0);
+            editor.putInt("water", 0);
 
 
             editor.commit();
@@ -542,11 +583,9 @@ public class MainActivity extends AppCompatActivity
         int cb_dinner = ch_SPreferences.getInt("Dinner", 0);
         int cb_trans = ch_SPreferences.getInt("Transportation", 0);
         int cb_internet = ch_SPreferences.getInt("Internet", 0);
-        int cb_rentin = ch_SPreferences.getInt("Renting", 0);
+        int cb_renting = ch_SPreferences.getInt("Renting", 0);
         int cb_electricity = ch_SPreferences.getInt("Electricity", 0);
-        int cb_water =  ch_SPreferences.getInt("Water", 0);
-
-
+        int cb_water = ch_SPreferences.getInt("Water", 0);
 
 
         String getMonday = schedule_SPreferences.getString("Monday", "No Data saved");
@@ -583,7 +622,7 @@ public class MainActivity extends AppCompatActivity
         int internet = dates.getInt("internet", 1);
         int water = dates.getInt("water", 1);
         int elect = dates.getInt("electricity", 1);
-        int renting = dates.getInt("rentin", 1);
+        int renting = dates.getInt("renting", 1);
 
         verifyMorning(cb_breakfast, 2, tempMon, 9, 50, 0, 0, notification, breakfastTime);
         verifyMorning(cb_breakfast, 3, tempTue, 9, 50, 0, 1, notification, breakfastTime);
@@ -613,14 +652,14 @@ public class MainActivity extends AppCompatActivity
         verifyTrans(cb_trans, 6, tempFri, 19, 0, 0, 22, notification, transTimer);
         verifyTrans(cb_trans, 7, tempSat, 19, 0, 0, 23, notification, transTimer);
 
-        verifyMonthly(cb_internet, internet , 24, notification, interTimer );
-        verifyMonthly(cb_water, water , 25, notification, waterTimer );
-        verifyMonthly(cb_electricity, elect , 26, notification, electTimer );
-        verifyMonthly(cb_rentin, renting , 27, notification, rentinTimer );
+        verifyMonthly(cb_internet, internet, 24, notification, interTimer);
+        verifyMonthly(cb_water, water, 25, notification, waterTimer);
+        verifyMonthly(cb_electricity, elect, 26, notification, electTimer);
+        verifyMonthly(cb_renting, renting, 27, notification, rentinTimer);
 
     }
 
-    public void verifyMonthly(int checked, int dayOfMonth,int id, String title, String text){
+    public void verifyMonthly(int checked, int dayOfMonth, int id, String title, String text) {
         Calendar currentTime = Calendar.getInstance();
         Calendar received = Calendar.getInstance();
         received.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -632,8 +671,8 @@ public class MainActivity extends AppCompatActivity
 
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 calendar.set(Calendar.HOUR_OF_DAY, 8);
-                calendar.set(Calendar.MINUTE, 00);
-                calendar.set(Calendar.SECOND, 00);
+                calendar.set(Calendar.MINUTE, 0);
+                calendar.set(Calendar.SECOND, 0);
 
                 Intent intent = new Intent(this, NotificationReceiver.class);
                 intent.putExtra("ID", id);
@@ -649,7 +688,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void verifyTrans(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text){
+    public void verifyTrans(int checked, int dayOfWeek, ClassDays day, int hour, int minutes, int seconds, int id, String title, String text) {
         Calendar currentTime = Calendar.getInstance();
         Calendar received = Calendar.getInstance();
         loadDate(received, dayOfWeek, hour, minutes, seconds);
@@ -735,5 +774,35 @@ public class MainActivity extends AppCompatActivity
         editor.putString("Saturday", saturday.toString());
         editor.commit();
     }
+
+    //Metodo animacion
+    public void animButton(View view) {
+        mSmallBang.bang(view, new SmallBangListener() {
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationEnd() {
+            }
+        });
+    }
+
+    private void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
+    }
+
+    private void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.hide();
+        }
+    }
+
 
 }

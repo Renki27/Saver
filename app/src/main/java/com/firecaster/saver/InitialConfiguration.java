@@ -336,14 +336,24 @@ public class InitialConfiguration extends AppCompatActivity {
     public void saveDates (){
         SharedPreferences sp = getSharedPreferences(MONTLY_DATES, 0);
         SharedPreferences.Editor editor = sp.edit();
-        int inter = ((MyApplication)this.getApplicationContext()).getInter();
-        int water = ((MyApplication)this.getApplicationContext()).getWater();
-        int rentin = ((MyApplication)this.getApplicationContext()).getRentin();
-        int electricity = ((MyApplication)this.getApplicationContext()).getElecticity();
-        editor.putInt("internet", inter);
-        editor.putInt("water", water);
-        editor.putInt("rentin", rentin);
-        editor.putInt("electricity", electricity);
+        int inter = MainActivity.internetDP;
+        int water = MainActivity.waterDP;
+        int renting = MainActivity.rentingDP;
+        int electricity = MainActivity.electricityDP;
+
+        if(inter != -1) {
+            editor.putInt("internet", inter);
+        }
+        if(water != -1) {
+            editor.putInt("water", water);
+        }
+        if(renting != -1) {
+            editor.putInt("renting", renting);
+        }
+        if(renting != -1) {
+            editor.putInt("electricity", electricity);
+        }
+
 
         editor.commit();
     }

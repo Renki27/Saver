@@ -36,9 +36,9 @@ public class DatePickerFragment extends DialogFragment
 
         Calendar fecha = Calendar.getInstance();
 
-        fecha.set(year, month, day, 8, 0, 00 );
+        fecha.set(year, month, day, 18, 50, 0 );
 
-        ((MyApplication) this.getContext()).setInter(day);
+        MainActivity.internetDP = day;
 
 
     }
